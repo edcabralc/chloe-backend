@@ -11,6 +11,9 @@
     <li>
         <router-link to="/contato">Contato</router-link>
     </li>
+        <li>
+        <router-link to="/feedback">Feedbacks</router-link>
+    </li>
 </template>
 
 <script>
