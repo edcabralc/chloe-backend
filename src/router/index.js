@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0d758028c57912eeb100e69791f296a795767b05
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/Home/HomeView";
 import AboutView from "@/views/About/AboutView";
@@ -7,6 +10,7 @@ import BookView from "@/views/Book/BookView";
 import ContactView from "@/views/Contact/ContactView";
 import SignView from "@/views/Sign/SignView";
 import RegisterView from "@/views/Register/RegisterView";
+<<<<<<< HEAD
 
 const routes = [
   {
@@ -100,49 +104,92 @@ const routes = [
 >>>>>>> cc1590492a343c90b384ef1d7f2bf400b0d76cd0
 =======
 import DeluxeView from "../views/Feedback/DeluxeView.vue";
+=======
+import FeedbackView from "@/views/Feedback/FeedbackView";
+import MainHeader from "@/components/commons/MainHeader";
+import MainFooter from "@/components/commons/MainFooter";
+>>>>>>> 0d758028c57912eeb100e69791f296a795767b05
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    components: {
+      header: MainHeader,
+      mainpage: HomeView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/sobre",
     name: "sobre",
-    component: AboutView,
+    components: {
+      header: MainHeader,
+      mainpage: AboutView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/acomodacoes",
     name: "acomodacoes",
-    component: RoomsView,
+    components: {
+      header: MainHeader,
+      mainpage: RoomsView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/reservar",
     name: "reservar",
-    component: BookView,
+    components: {
+      header: MainHeader,
+      mainpage: BookView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/contato",
     name: "contato",
-    component: ContactView,
+    components: {
+      header: MainHeader,
+      mainpage: ContactView,
+      footer: MainFooter,
+    },
+  },
+  {
+    path: "/feedback",
+    name: "feedback",
+    components: {
+      header: MainHeader,
+      mainpage: FeedbackView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/acessar",
     name: "acessar",
-    component: SignView,
+    components: {
+      login: SignView,
+    },
   },
   {
     path: "/cadastrar",
     name: "cadastro",
-    component: RegisterView,
+    components: {
+      header: MainHeader,
+      mainpage: RegisterView,
+      footer: MainFooter,
+    },
   },
+<<<<<<< HEAD
   {
     path: "/feedback",
     name: "feedback",
     component: DeluxeView,
   },
 >>>>>>> 5680e0ea13fdc14deb4d9bac2aa5c27d0299b61e
+=======
+>>>>>>> 0d758028c57912eeb100e69791f296a795767b05
 ];
 
 const router = createRouter({

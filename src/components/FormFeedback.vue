@@ -24,8 +24,7 @@
               name="message"
               class="message"
               cols="30"
-              rows="10"
-            ></textarea>
+              rows="10"></textarea>
           </div>
           <div class="avaliacao-content">
             <p>Avalie nossos serviços:</p>
@@ -50,7 +49,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* Style de Titles and Form */
 .title-feedback {
   font-size: 40px;
@@ -80,11 +79,11 @@ export default {
 /* Style Star */
 
 .avaliacao-content {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .avaliacao-icons {
@@ -93,15 +92,14 @@ export default {
   display: flex;
   align-items: center;
   gap: 5px;
-  
 }
 
 .star-icon {
-    width: 30px;
-    list-style: none;
-    cursor: pointer;
-    color: #ffe500;
-    font-size: 30px;
+  width: 30px;
+  list-style: none;
+  cursor: pointer;
+  color: #ffe500;
+  font-size: 30px;
 }
 
 .star-icon::before {
@@ -113,11 +111,10 @@ export default {
 }
 
 .avaliacao-icons:hover .star-icon::before {
-    content: "\2605";
+  content: "\2605";
 }
 
 .star-icon:hover ~ .star-icon::before {
-    content: "\2606";
+  content: "\2606";
 }
-
 </style>
