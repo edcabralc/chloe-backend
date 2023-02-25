@@ -33,7 +33,7 @@ var AvaliacaoFeedback = /** @class */ (function () {
         };
         var dadosfe = [];
         if (this.getLocalStorage()) {
-            dadosfe.push(avaliacaofe);
+            dadosfe.push(JSON.parse(JSON.stringify(avaliacaofe)));
             var dadosInfo = this.getLocalStorage();
             for (var _i = 0, _a = Object.entries(dadosInfo); _i < _a.length; _i++) {
                 var _b = _a[_i], _ = _b[0], dados = _b[1];
@@ -41,17 +41,16 @@ var AvaliacaoFeedback = /** @class */ (function () {
                 avaliacaofe.sobrenome = dados['sobrenome'];
                 avaliacaofe.descricao = dados['descricao'];
                 avaliacaofe.nota = dados['nota'];
-                dadosfe.push(avaliacaofe);
+                dadosfe.push(JSON.parse(JSON.stringify(avaliacaofe)));
             }
-            console.log(dadosfe);
+            this.salvaLocalStorage(dadosfe);
         }
         else {
             dadosfe.push(avaliacaofe);
-            var feedbackAvaliacao = JSON.stringify(dadosfe);
-            localStorage.setItem('avaliacaoFedBack', feedbackAvaliacao);
+            this.salvaLocalStorage(dadosfe);
         }
-        // alert('Obrigado pelo FeedBack')
-        // window.location.href = '/feedback'
+        alert('Obrigado pelo FeedBack');
+        window.location.href = '/feedback';
     };
     AvaliacaoFeedback.prototype.getLocalStorage = function () {
         var dadosFeedback = localStorage.getItem('avaliacaoFedBack');
@@ -60,6 +59,10 @@ var AvaliacaoFeedback = /** @class */ (function () {
             dados = JSON.parse(dadosFeedback);
         }
         return dados;
+    };
+    AvaliacaoFeedback.prototype.salvaLocalStorage = function (ob) {
+        var feedbackAvaliacao = JSON.stringify(ob);
+        localStorage.setItem('avaliacaoFedBack', feedbackAvaliacao);
     };
     return AvaliacaoFeedback;
 }());
