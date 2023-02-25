@@ -36,13 +36,21 @@
                 </div>
             </article>
 
-
         </section>
+        <div style="text-align: center;">
+            <ul v-for="dados in dadosAvaliacao" :key="dados.descricao">
+                <li>Nome: {{ dados.nome }} {{ dados.sobrenome }}</li>
+                <!-- <li>Sobrenome: </li> -->
+                <li>Descrição: {{ dados.descricao }}</li>
+                <li>Avaliação: {{ dados.nota }}</li>
+                <br>
+            </ul>
+        </div>
     </main>
 </template>
 
 <script>
-import { AvaliacaoFeedback } from '@/class/AvaliacaoFeedback';
+import { AvaliacaoFeedback } from '@/class/AvaliacaoFeedback'
 export default {
     name: 'FormFeedback',
     data() {
@@ -50,37 +58,36 @@ export default {
             nome: '',
             sobrenome: '',
             mensagem: '',
-            notaAvaliacao: '',
-            dadosAvaliacao : []
-        };
+            notaAvaliacao: '1',
+            dadosAvaliacao: [],
+        }
     },
 
     methods: {
         avaliacao(e) {
-            this.notaAvaliacao = e.target.getAttribute('data-avaliacao');
-            let avaliacao = new AvaliacaoFeedback();
+            this.notaAvaliacao = e.target.getAttribute('data-avaliacao')
+            let avaliacao = new AvaliacaoFeedback()
             try {
-                avaliacao.avaliacao(e);
+                avaliacao.avaliacao(e)
             } catch (erro) {
                 // console.error(erro);
             }
         },
 
-        submit() {
-            let avaliacao = new AvaliacaoFeedback();
-            avaliacao.setlocalStorage(this.nome, this.sobrenome, this.notaAvaliacao);
+        submit() {      
+            let avaliacao = new AvaliacaoFeedback()
+            avaliacao.setlocalStorage(this.nome, this.sobrenome, this.mensagem, this.notaAvaliacao)
         },
         getFeedBack() {
-            let avaliacao = new AvaliacaoFeedback();
-            let dados = avaliacao.getLocalStorage();
-            // this.dadosAvaliacao.push(dados)
-            // console.log(this.dadosAvaliacao);
+            let avaliacao = new AvaliacaoFeedback()
+            let dados = avaliacao.getLocalStorage()
+            this.dadosAvaliacao = dados
         },
     },
     mounted() {
-        this.getFeedBack();
+        this.getFeedBack()
     },
-};
+}
 </script>
 
 <style lang="scss" scoped>
