@@ -68,7 +68,7 @@ export default {
 
         submit() {
             let avaliacao = new AvaliacaoFeedback();
-            avaliacao.setlocalStorage(this.nome, this.sobrenome, this.notaAvaliacao);
+            avaliacao.setlocalStorage(this.nome, this.sobrenome, this.mensagem, this.notaAvaliacao);
         },
         getFeedBack() {
             let avaliacao = new AvaliacaoFeedback();
