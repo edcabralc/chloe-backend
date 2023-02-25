@@ -1,6 +1,8 @@
+// import {dadosFeedback}  from "@/helpers/DadosFeedBack.js";
 export class AvaliacaoFeedback {
     private nome: string = '';
     private sobrenome: string = '';
+    private descricao: string = '';
     private notaavaliacao: number;
 
     constructor() {}
@@ -18,24 +20,37 @@ export class AvaliacaoFeedback {
         }
     }
 
-    setlocalStorage(nome: string, sobrenome: string, avaliacao: number) {
+    setlocalStorage(nome: string, sobrenome: string, descricao: string, avaliacao: number) {
         this.nome = nome
         this.sobrenome = sobrenome
+        this.descricao = descricao
         this.notaavaliacao = avaliacao
         let avaliacaofe = {
             nome: this.nome,
             sobrenome: this.sobrenome,
+            descricao: this.descricao,
             nota: this.notaavaliacao,
         };
-        let dados = []
+        let dadosfe = []
         if (this.getLocalStorage()){
-            console.log(this.getLocalStorage());
-            // for( let i in this.getLocalStorage())
+            dadosfe.push(avaliacaofe)
+            let dadosInfo = this.getLocalStorage()
+            for (let [_, dados] of Object.entries(dadosInfo)){
+                avaliacaofe.nome = dados['nome']
+                avaliacaofe.sobrenome = dados['sobrenome']
+                avaliacaofe.descricao = dados['descricao']
+                avaliacaofe.nota = dados['nota']
+                dadosfe.push(avaliacaofe)
+            }
+            console.log(dadosfe);
         }
-        dados.push(avaliacaofe)
-        let feedbackAvaliacao = JSON.stringify(dados)
-        localStorage.setItem('avaliacaoFedBack', feedbackAvaliacao)
-        alert('Obrigado pelo FeedBack')
+        else{
+            dadosfe.push(avaliacaofe)
+            let feedbackAvaliacao = JSON.stringify(dadosfe)
+            localStorage.setItem('avaliacaoFedBack', feedbackAvaliacao)
+            
+        }
+        // alert('Obrigado pelo FeedBack')
         // window.location.href = '/feedback'
     }
 
