@@ -35,16 +35,20 @@
                     <input class="btn" type="submit" value="Enviar" @click="submit" />
                 </div>
             </article>
-
         </section>
-        <div style="text-align: center;">
-            <ul v-for="dados in dadosAvaliacao" :key="dados.descricao">
-                <li>Nome: {{ dados.nome }} {{ dados.sobrenome }}</li>
-                <!-- <li>Sobrenome: </li> -->
-                <li>Descrição: {{ dados.descricao }}</li>
-                <li>Avaliação: {{ dados.nota }}</li>
-                <br>
-            </ul>
+        <div class="container-feedback">
+            <div class="feedback">
+                <h3>Confira os Feedbacks</h3>
+                <hr>
+                <ul v-for="dados in dadosAvaliacao" :key="dados.descricao">
+                    <li>Nome: {{ dados.nome }} {{ dados.sobrenome }}</li>
+                    <!-- <li>Sobrenome: </li> -->
+                    <li>Descrição: {{ dados.descricao }}</li>
+                    <li>Avaliação: {{ dados.nota }}</li>
+                    <hr>
+                    <br>
+                </ul>
+            </div>
         </div>
     </main>
 </template>
@@ -74,7 +78,7 @@ export default {
             }
         },
 
-        submit() {      
+        submit() {
             let avaliacao = new AvaliacaoFeedback()
             avaliacao.setlocalStorage(this.nome, this.sobrenome, this.mensagem, this.notaAvaliacao)
         },
@@ -157,5 +161,31 @@ export default {
 
 .star-icon:hover ~ .star-icon::before {
     content: '\2606';
+}
+
+// Feedback
+
+.container-feedback {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.feedback {
+    background-color: #eff5f0;
+    border-radius: 20px;
+    width: 700px;
+}
+
+.feedback > h3 {
+    margin: 20px;
+    font-size: 30px;
+}
+
+ul > li {
+    margin: 10px;
 }
 </style>
