@@ -13,7 +13,7 @@
         </router-link>
       </li>
     </ul>
-    <navmobile />
+    <NavMobile />
   </nav>
 </template>
 
