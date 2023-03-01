@@ -1,22 +1,22 @@
-import { createStore } from "vuex";
-import { rooms } from "@/helpers/dataRooms";
-import { acomodacoes } from "@/helpers/AcomodacaoData";
+import { createStore } from 'vuex'
+import { rooms } from '@/helpers/dataRooms'
+import { acomodacoes } from '@/helpers/AcomodacaoData'
 
 export default createStore({
-  state: {
-    acomodacoes: [],
-    // rooms,
-  },
-  getters: {},
-  mutations: {
-    loadRooms(state, acomodacoes) {
-      state.acomodacoes = acomodacoes;
+    state: {
+        acomodacoes: [],
+        // rooms,
     },
-  },
-  actions: {
-    loadRooms({ commit }) {
-      commit("loadRooms", acomodacoes);
+    getters: {},
+    mutations: {
+        loadRooms(state, acomodacoes) {
+            state.acomodacoes = acomodacoes
+        },
     },
-  },
-  modules: {},
-});
+    actions: {
+        loadRooms({ commit }) {
+            commit('loadRooms', acomodacoes)
+        },
+    },
+    modules: {},
+})
