@@ -161,7 +161,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 -- Table `chloe_database`.`endereço`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `chloe_database`.`endereço` (
+CREATE TABLE IF NOT EXISTS `chloe_database`.`endereco` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `cep` INT UNSIGNED NOT NULL,
   `logradouro` VARCHAR(50) NOT NULL,
