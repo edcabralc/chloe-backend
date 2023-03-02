@@ -15,11 +15,10 @@
                         <img :src="`${dados.src}`" alt="" />
                     </div>
                 </div>
-                <button class="btn-feedback">Reservar</button>
+                <div class="content-form">
+                    <FormFeedback />
+                </div>
             </div>
-        </div>
-        <div class="content-form">
-            <FormFeedback />
         </div>
     </main>
 </template>
@@ -28,7 +27,7 @@
 import HeroBanner from '@/components/commons/HeroBanner'
 import FormFeedback from '@/components/FormFeedback'
 import { Acomodacao } from '@/class/Acomodacao'
-import { acomodacoes } from '@/helpers/AcomodacaoData'
+import { acomodacoesData } from '@/helpers/AcomodacaoData'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStar } from '@fortawesome/free-regular-svg-icons'
@@ -58,9 +57,11 @@ export default {
             this.acomodacao = ob
         },
     },
-    mutation: {},
-    mounted() {
-        this.dadosAcomodacao()
+    objAcomodacao(idimg) {
+        // console.log(acomodacoesData.id == idimg);
+        const ob = acomodacoesData.filter((acomdacao) => acomdacao.id == idimg)
+        // console.log(ob);
+        this.acomodacao = ob
     },
 }
 </script>

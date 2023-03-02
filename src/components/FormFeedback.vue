@@ -39,14 +39,14 @@
         <div class="container-feedback">
             <div class="feedback">
                 <h3>Confira os Feedbacks</h3>
-                <hr>
+                <hr />
                 <ul v-for="dados in dadosAvaliacao" :key="dados.descricao">
                     <li>Nome: {{ dados.nome }} {{ dados.sobrenome }}</li>
                     <!-- <li>Sobrenome: </li> -->
                     <li>Descrição: {{ dados.descricao }}</li>
                     <li>Avaliação: {{ dados.nota }}</li>
-                    <hr>
-                    <br>
+                    <hr />
+                    <br />
                 </ul>
             </div>
         </div>
@@ -126,7 +126,7 @@ export default {
 .avaliacao-content {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     flex-direction: column;
     gap: 10px;
 }
