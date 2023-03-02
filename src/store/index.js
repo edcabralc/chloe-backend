@@ -1,47 +1,34 @@
-// import { createStore } from 'vuex'
-// import { acomodacoesData } from '@/helpers/AcomodacaoData'
+import { createStore } from 'vuex'
+import { acomodacoes } from '@/helpers/AcomodacaoData'
+import axios from 'axios'
 
-// export default createStore({
-//     state: {
-//         acomodacoes: [],
-//         acomodacoesOnCart: [],
-//         user: [],
-//     },
-//     getters: {
-//         getQuarto(state) {
-//             return state.acomodacoes.filter(({ destaque }) => destaque)
-//         },
-//     },
-//     mutations: {
-//         loadRooms(state, acomodacoesData) {
-//             console.log(state, acomodacoesData)
-//             state.acomodacoes = acomodacoesData
-//         },
-//         loadCart(state, acomodacoesOnCart) {
-//             state.acomodacoesOnCart = acomodacoesOnCart
-//         },
-//         addToCart(state, quarto) {
-//             state.acomodacoesOnCart = Object.assign(quarto)
-//         },
-
-//     },
-//     actions: {
-//         loadRooms({ commit }) {
-//             commit('loadRooms', acomodacoesData)
-//         },
-
-//         loadCart({ commit }) {
-//             commit('loadCart')
-//         },
-//         addToCart({ commit }, quarto) {
-//             commit('addToCart', quarto)
-//         },
-//         loadUser({ commit }) {
-//             axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
-//                 commit('loadUser', response.data)
-//             })
-//         },
-
-//         modules: {},
-//     },
-// })
+export default createStore({
+    state: {
+        acomodacoes: [],
+        user: [],
+        // rooms,
+    },
+    getters: {},
+    mutations: {
+        loadRooms(state, acomodacoes) {
+            state.acomodacoes = acomodacoes
+        },
+        loadUser(state, user) {
+            state.user = user
+        },
+    },
+    actions: {
+        // loadRooms({ commit }) {
+        //     commit('loadRooms', acomodacoes)
+        // },
+        loadRooms({ commit }) {
+            commit('loadRooms', acomodacoes)
+        },
+        loadUser({ commit }) {
+            axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
+                commit('loadUser', response.data)
+            })
+        },
+    },
+    modules: {},
+})
