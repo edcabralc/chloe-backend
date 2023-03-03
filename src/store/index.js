@@ -1,38 +1,36 @@
-import { createStore } from "vuex";
-import { acomodacoesData } from "@/helpers/AcomodacaoData";
+import { createStore } from 'vuex'
+import { acomodacoes } from '@/helpers/AcomodacaoData'
+import axios from 'axios'
 
 export default createStore({
-  state: {
-    acomodacoes: [],
-    acomodacoesOnCart: [],
-  },
-  getters: {
-    getQuarto(state) {
-      return state.acomodacoes.filter(({ destaque }) => destaque);
+    state: {
+        acomodacoes: [],
+        user: [],
+        // rooms,
     },
-  },
-  mutations: {
-    loadRooms(state, acomodacoesData) {
-      console.log(state, acomodacoesData);
-      state.acomodacoes = acomodacoesData;
+    getters: {},
+    mutations: {
+        loadRooms(state, acomodacoes) {
+            state.acomodacoes = acomodacoes
+        },
+        loadUser(state, user) {
+            state.user = user
+        },
     },
-    loadCart(state, acomodacoesOnCart) {
-      state.acomodacoesOnCart = acomodacoesOnCart;
+    actions: {
+        // loadRooms({ commit }) {
+        //     commit('loadRooms', acomodacoes)
+        // },
+        loadRooms({ commit }) {
+            axios.get('http://localhost:4000/api/acomodacoes').then((response) => {
+                commit('loadRooms', response.data)
+            })
+        },
+        loadUser({ commit }) {
+            axios.get('http://localhost:4000/api/usuarios').then((response) => {
+                commit('loadUser', response.data)
+            })
+        },
     },
-    addToCart(state, quarto) {
-      state.acomodacoesOnCart = Object.assign(quarto);
-    },
-  },
-  actions: {
-    loadRooms({ commit }) {
-      commit("loadRooms", acomodacoesData);
-    },
-    loadCart({ commit }) {
-      commit("loadCart");
-    },
-    addToCart({ commit }, quarto) {
-      commit("addToCart", quarto);
-    },
-  },
-  modules: {},
-});
+    modules: {},
+})
