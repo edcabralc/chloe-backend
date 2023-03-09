@@ -209,7 +209,6 @@ export default {
         getItem: (arr, id) => {
             arr.filter((item, index, arrr) => {
                 if (item.id == id) {
-                    // console.log(item);
                 }
             })
         },
@@ -250,7 +249,6 @@ export default {
             this.showCupom = !this.showCupom
             let codigo = Math.random().toString(36).substring(2, 9).toUpperCase()
             this.cupom = codigo
-            // alert(`Código: ${codigo}`);
         },
         totalReserva() {
             if (this.subtotal && this.cupomDesconto != '') {
@@ -278,14 +276,10 @@ export default {
         acomodacoes() {
             return this.$store.state.acomodacoes
         },
-        user() {
-            return this.$store.state.user
-        },
     },
     components: { ModalBook, HeroBanner, LinkButton },
     created() {
         this.$store.dispatch('loadRooms')
-        this.$store.dispatch('loadUser')
     },
 }
 </script>

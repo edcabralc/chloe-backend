@@ -29,11 +29,9 @@ import HeroBanner from '@/components/commons/HeroBanner'
 import FormFeedback from '@/components/FormFeedback'
 import { Acomodacao } from '@/class/Acomodacao'
 import { acomodacoesData } from '@/helpers/AcomodacaoData'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
 export default {
     name: 'FeedbackView',
     data() {
