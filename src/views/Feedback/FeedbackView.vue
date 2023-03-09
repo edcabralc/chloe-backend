@@ -25,14 +25,14 @@
 </template>
 
 <script>
-import HeroBanner from '@/components/commons/HeroBanner';
-import FormFeedback from '@/components/FormFeedback';
-import { Acomodacao } from '@/class/Acomodacao';
-import { acomodacoes } from '@/helpers/AcomodacaoData';
+import HeroBanner from '@/components/commons/HeroBanner'
+import FormFeedback from '@/components/FormFeedback'
+import { Acomodacao } from '@/class/Acomodacao'
+import { acomodacoesData } from '@/helpers/AcomodacaoData'
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faStar } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 export default {
     name: 'FeedbackView',
@@ -40,7 +40,7 @@ export default {
         return {
             idImg: '',
             acomodacao: '',
-        };
+        }
     },
     components: {
         HeroBanner,
@@ -48,21 +48,21 @@ export default {
     },
     methods: {
         dadosAcomodacao() {
-            let avalicaoHotel = new Acomodacao();
-            let dados = avalicaoHotel.getLocalStorage();
-            this.idImg = dados.idImg;
-            this.objAcomodacao(this.idImg);
+            let avalicaoHotel = new Acomodacao()
+            let dados = avalicaoHotel.getLocalStorage()
+            this.idImg = dados.idImg
+            this.objAcomodacao(this.idImg)
         },
         objAcomodacao(idimg) {
-            const ob = acomodacoes.filter((acomdacao) => acomdacao.id == idimg);
-            this.acomodacao = ob;
+            const ob = acomodacoesData.filter((acomdacao) => acomdacao.id == idimg)
+            this.acomodacao = ob
         },
     },
     mutation: {},
     mounted() {
-        this.dadosAcomodacao();
+        this.dadosAcomodacao()
     },
-};
+}
 </script>
 
 <style src="./style.scss" lang="scss" />

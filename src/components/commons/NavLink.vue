@@ -11,12 +11,15 @@
     <li>
         <router-link to="/contato">Contato</router-link>
     </li>
+    <li>
+        <router-link to="/avaliacoes">Feedbacks</router-link>
+    </li>
 </template>
 
 <script>
 export default {
-    name: "NavLink",
-};
+    name: 'NavLink',
+}
 </script>
 
 <style></style>

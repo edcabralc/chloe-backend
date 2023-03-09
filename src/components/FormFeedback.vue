@@ -35,14 +35,26 @@
                     <input class="btn" type="submit" value="Enviar" @click="submit" />
                 </div>
             </article>
-
-
         </section>
+        <div class="container-feedback">
+            <div class="feedback">
+                <h3>Confira os Feedbacks</h3>
+                <hr />
+                <ul v-for="dados in dadosAvaliacao" :key="dados.descricao">
+                    <li>Nome: {{ dados.nome }} {{ dados.sobrenome }}</li>
+                    <!-- <li>Sobrenome: </li> -->
+                    <li>Descrição: {{ dados.descricao }}</li>
+                    <li>Avaliação: {{ dados.nota }}</li>
+                    <hr />
+                    <br />
+                </ul>
+            </div>
+        </div>
     </main>
 </template>
 
 <script>
-import { AvaliacaoFeedback } from '@/class/AvaliacaoFeedback';
+import { AvaliacaoFeedback } from '@/class/AvaliacaoFeedback'
 export default {
     name: 'FormFeedback',
     data() {
@@ -50,37 +62,36 @@ export default {
             nome: '',
             sobrenome: '',
             mensagem: '',
-            notaAvaliacao: '',
-            dadosAvaliacao : []
-        };
+            notaAvaliacao: '1',
+            dadosAvaliacao: [],
+        }
     },
 
     methods: {
         avaliacao(e) {
-            this.notaAvaliacao = e.target.getAttribute('data-avaliacao');
-            let avaliacao = new AvaliacaoFeedback();
+            this.notaAvaliacao = e.target.getAttribute('data-avaliacao')
+            let avaliacao = new AvaliacaoFeedback()
             try {
-                avaliacao.avaliacao(e);
+                avaliacao.avaliacao(e)
             } catch (erro) {
                 // console.error(erro);
             }
         },
 
         submit() {
-            let avaliacao = new AvaliacaoFeedback();
-            avaliacao.setlocalStorage(this.nome, this.sobrenome, this.mensagem, this.notaAvaliacao);
+            let avaliacao = new AvaliacaoFeedback()
+            avaliacao.setlocalStorage(this.nome, this.sobrenome, this.mensagem, this.notaAvaliacao)
         },
         getFeedBack() {
-            let avaliacao = new AvaliacaoFeedback();
-            let dados = avaliacao.getLocalStorage();
-            // this.dadosAvaliacao.push(dados)
-            // console.log(this.dadosAvaliacao);
+            let avaliacao = new AvaliacaoFeedback()
+            let dados = avaliacao.getLocalStorage()
+            this.dadosAvaliacao = dados
         },
     },
     mounted() {
-        this.getFeedBack();
+        this.getFeedBack()
     },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -115,7 +126,7 @@ export default {
 .avaliacao-content {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     flex-direction: column;
     gap: 10px;
 }
@@ -150,5 +161,31 @@ export default {
 
 .star-icon:hover ~ .star-icon::before {
     content: '\2606';
+}
+
+// Feedback
+
+.container-feedback {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.feedback {
+    background-color: #eff5f0;
+    border-radius: 20px;
+    width: 700px;
+}
+
+.feedback > h3 {
+    margin: 20px;
+    font-size: 30px;
+}
+
+ul > li {
+    margin: 10px;
 }
 </style>
