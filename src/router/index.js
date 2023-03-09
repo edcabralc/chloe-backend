@@ -5,6 +5,7 @@ import RoomsView from '@/views/Rooms/RoomsView'
 import BookView from '@/views/Book/BookView'
 import ContactView from '@/views/Contact/ContactView'
 import SignView from '@/views/Sign/SignView'
+import DashboardView from '@/views/Dashboard/DashboardView'
 import RegisterView from '@/views/Register/RegisterView'
 import FeedbackView from '@/views/Feedback/FeedbackView'
 import MainHeader from '@/components/commons/MainHeader'
@@ -79,6 +80,20 @@ const routes = [
             header: MainHeader,
             mainpage: RegisterView,
             footer: MainFooter,
+        },
+    },
+    {
+        path: '/painel',
+        name: 'painel',
+        components: {
+            mainpage: DashboardView,
+        },
+    },
+    {
+        path: '/painel',
+        name: 'painel',
+        components: {
+            mainpage: DashboardView,
         },
     },
 ]

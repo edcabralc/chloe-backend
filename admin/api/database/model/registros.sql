@@ -1,33 +1,33 @@
 -- Populando a tabela usuario com 10 registros
-INSERT INTO usuario (nome_usuario, email_usuario, password, nivel, status, last_login, updated_at)
+INSERT INTO usuario (nome_usuario, email_usuario, password, nivel, status, last_login)
 VALUES 
-('João da Silva', 'joao.silva@email.com', '123456', 'admin', 'ativo'),
-('Maria Souza', 'maria.souza@email.com', '789012', 'user', 'ativo'),
-('Pedro Ferreira', 'pedro.ferreira@email.com', '345678', 'user', 'inativo'),
-('Lucas', 'lucas@gmail.com', '123456', 'administrador', 'ativo'),
-('Maria', 'maria@gmail.com', 'abcdef', 'usuário', 'ativo'),
-('Pedro', 'pedro@gmail.com', 'qwerty', 'usuário', 'inativo'),
-('Julia', 'julia@gmail.com', 'abc123', 'administrador', 'ativo'),
-('Rafael', 'rafael@gmail.com', 'senha123', 'usuário', 'ativo'),
-('Carla', 'carla@gmail.com', '123abc', 'administrador', 'inativo'),
-('Mariana', 'mariana@gmail.com', 'senhaabc', 'usuário', 'ativo');
+('João da Silva', 'joao.silva@email.com', '123456', 'admin', 'ativo',NOW()),
+('Maria Souza', 'maria.souza@email.com', '789012', 'user', 'ativo',NOW()),
+('Pedro Ferreira', 'pedro.ferreira@email.com', '345678', 'user', 'inativo',NOW()),
+('Lucas', 'lucas@gmail.com', '123456', 'administrador', 'ativo',NOW()),
+('Maria', 'maria@gmail.com', 'abcdef', 'usuário', 'ativo',NOW()),
+('Pedro', 'pedro@gmail.com', 'qwerty', 'usuário', 'inativo',NOW()),
+('Julia', 'julia@gmail.com', 'abc123', 'administrador', 'ativo',NOW()),
+('Rafael', 'rafael@gmail.com', 'senha123', 'usuário', 'ativo',NOW()),
+('Carla', 'carla@gmail.com', '123abc', 'administrador', 'inativo',NOW()),
+('Mariana', 'mariana@gmail.com', 'senhaabc', 'usuário', 'ativo',NOW());
 
 
 -- Populando a tabela endereço
 
 INSERT INTO endereco
-(`logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `pais`, `usuario_id`) 
+(cep,`logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `pais`, `usuario_id`) 
 VALUES 
-('Rua A', 123, 'apt 101', 'Centro', 'São Paulo', 'SP', 'Brasil', 1),
-('Avenida B', 456, '', 'Jardim Paulista', 'São Paulo', 'SP', 'Brasil', 1),
-('Rua C', 789, 'casa 2', 'Vila Mariana', 'São Paulo', 'SP', 'Brasil', 2),
-('Rua D', 321, 'apt 202', 'Pinheiros', 'São Paulo', 'SP', 'Brasil', 2),
-('Avenida E', 654, '', 'Vila Madalena', 'São Paulo', 'SP', 'Brasil', 3),
-('Rua F', 987, '', 'Moema', 'São Paulo', 'SP', 'Brasil', 3),
-('Rua G', 147, '', 'Itaim Bibi', 'São Paulo', 'SP', 'Brasil', 4),
-('Avenida H', 258, 'apt 303', 'Vila Olímpia', 'São Paulo', 'SP', 'Brasil', 4),
-('Rua I', 369, '', 'Vila Nova Conceição', 'São Paulo', 'SP', 'Brasil', 5),
-('Rua J', 753, 'casa 1', 'Brooklin', 'São Paulo', 'SP', 'Brasil', 5);
+('5005500','Rua A', 123, 'apt 101', 'Centro', 'São Paulo', 'SP', 'Brasil', 1),
+('5005500','Avenida B', 456, '', 'Jardim Paulista', 'São Paulo', 'SP', 'Brasil', 1),
+('5005500','Rua C', 789, 'casa 2', 'Vila Mariana', 'São Paulo', 'SP', 'Brasil', 2),
+('5005500','Rua D', 321, 'apt 202', 'Pinheiros', 'São Paulo', 'SP', 'Brasil', 2),
+('5005500','Avenida E', 654, '', 'Vila Madalena', 'São Paulo', 'SP', 'Brasil', 3),
+('5005500','Rua F', 987, '', 'Moema', 'São Paulo', 'SP', 'Brasil', 3),
+('5005500','Rua G', 147, '', 'Itaim Bibi', 'São Paulo', 'SP', 'Brasil', 4),
+('5005500','Avenida H', 258, 'apt 303', 'Vila Olímpia', 'São Paulo', 'SP', 'Brasil', 4),
+('5005500','Rua I', 369, '', 'Vila Nova Conceição', 'São Paulo', 'SP', 'Brasil', 5),
+('5005500','Rua J', 753, 'casa 1', 'Brooklin', 'São Paulo', 'SP', 'Brasil', 5);
 
 -- Populando a tabela reserva 
 
@@ -47,17 +47,17 @@ VALUES
 
 -- Populando a tabela acomodacoes
 
-INSERT INTO acomodacoes (`nome`, `tipo`, `status`, `descricao`, `preco`, `imagem`, `reserva_id`, `reserva_usuario_id`) VALUES
-('Quarto Standard', 'Quarto', 'Disponível', 'Quarto com cama de casal, TV e banheiro privativo', 120.00, 'https://example.com/quarto_standard.jpg', 1, 1),
-('Quarto Luxo', 'Quarto', 'Disponível', 'Quarto com cama king size, TV, banheira de hidromassagem e vista para o mar', 250.00, 'https://example.com/quarto_luxo.jpg', 2, 2),
-('Suíte Presidencial', 'Suíte', 'Ocupada', 'Suíte com sala de estar, varanda, cama king size, banheira de hidromassagem e vista para o mar', 500.00, 'https://example.com/suite_presidencial.jpg', 3, 3),
-('Chalé Família', 'Chalé', 'Disponível', 'Chalé com dois quartos, sala de estar, cozinha, TV e banheiro privativo', 300.00, 'https://example.com/chale_familia.jpg', 4, 4),
-('Cabana Rústica', 'Cabana', 'Disponível', 'Cabana com cama de casal, cozinha, banheiro privativo e varanda com rede', 100.00, 'https://example.com/cabana_rustica.jpg', 5, 5),
-('Apartamento Standard', 'Apartamento', 'Ocupado', 'Apartamento com sala de estar, cozinha, dois quartos e banheiro', 200.00, 'https://example.com/apartamento_standard.jpg', 6, 6),
-('Apartamento Luxo', 'Apartamento', 'Disponível', 'Apartamento com sala de estar, cozinha, três quartos, banheiro e vista para a praia', 350.00, 'https://example.com/apartamento_luxo.jpg', 7, 7),
-('Bangalô Praia', 'Bangalô', 'Disponível', 'Bangalô com cama king size, varanda com vista para o mar, banheira de hidromassagem e chuveiro ao ar livre', 400.00, 'https://example.com/bangalo_praia.jpg', 8, 8),
-('Tenda Ecológica', 'Tenda', 'Disponível', 'Tenda com cama de casal, cozinha ao ar livre e banheiro compartilhado', 50.00, 'https://example.com/tenda_ecologica.jpg', 9, 9),
-('Loft Duplex', 'Loft', 'Disponível', 'Loft com sala de estar, cozinha, cama king size, banheiro com banheira de hidromassagem e vista para o mar', 300.00, 'https://example.com/loft_duplex.jpg', 10, 10);
+INSERT INTO acomodacoes (`nome`, `tipo`, `status`, `descricao`, `preco`, `imagem`) VALUES
+('Quarto Standard', 'Quarto', 'Disponível', 'Quarto com cama de casal, TV e banheiro privativo', 120.00, 'https://example.com/quarto_standard.jpg'),
+('Quarto Luxo', 'Quarto', 'Disponível', 'Quarto com cama king size, TV, banheira de hidromassagem e vista para o mar', 250.00, 'https://example.com/quarto_luxo.jpg'),
+('Suíte Presidencial', 'Suíte', 'Ocupada', 'Suíte com sala de estar, varanda, cama king size, banheira de hidromassagem e vista para o mar', 500.00, 'https://example.com/suite_presidencial.jpg'),
+('Chalé Família', 'Chalé', 'Disponível', 'Chalé com dois quartos, sala de estar, cozinha, TV e banheiro privativo', 300.00, 'https://example.com/chale_familia.jpg'),
+('Cabana Rústica', 'Cabana', 'Disponível', 'Cabana com cama de casal, cozinha, banheiro privativo e varanda com rede', 100.00, 'https://example.com/cabana_rustica.jpg'),
+('Apartamento Standard', 'Apartamento', 'Ocupado', 'Apartamento com sala de estar, cozinha, dois quartos e banheiro', 200.00, 'https://example.com/apartamento_standard.jpg'),
+('Apartamento Luxo', 'Apartamento', 'Disponível', 'Apartamento com sala de estar, cozinha, três quartos, banheiro e vista para a praia', 350.00, 'https://example.com/apartamento_luxo.jpg'),
+('Bangalô Praia', 'Bangalô', 'Disponível', 'Bangalô com cama king size, varanda com vista para o mar, banheira de hidromassagem e chuveiro ao ar livre', 400.00, 'https://example.com/bangalo_praia.jpg'),
+('Tenda Ecológica', 'Tenda', 'Disponível', 'Tenda com cama de casal, cozinha ao ar livre e banheiro compartilhado', 50.00, 'https://example.com/tenda_ecologica.jpg'),
+('Loft Duplex', 'Loft', 'Disponível', 'Loft com sala de estar, cozinha, cama king size, banheiro com banheira de hidromassagem e vista para o mar', 300.00, 'https://example.com/loft_duplex.jpg');
 
 -- Populando a tabela avaliacoes
 
@@ -76,17 +76,17 @@ VALUES
 
 -- Populando a tabela serviços
 
-INSERT INTO servicos (nome_servico, preco, descricao, local, imagem, reserva_id, reserva_usuario_id) VALUES
-('Cofre', 50.00, 'Guardamos seus objetos de valor com total segurança.', 'Recepção', 'cofre.jpg', 1, 1),
-('Lavandeira', 25.00, 'Lavamos suas roupas com agilidade e qualidade.', 'Lavanderia', 'lavandeira.jpg', 1, 1),
-('Café', 5.00, 'Oferecemos café da manhã completo para você começar bem o dia.', 'Restaurante', 'cafe.jpg', 1, 1),
-('Massagem', 80.00, 'Relaxe com uma massagem terapêutica personalizada.', 'Spa', 'massagem.jpg', 2, 2),
-('Sala', 100.00, 'Locação de salas para eventos empresariais ou reuniões.', 'Sala de Reuniões', 'sala.jpg', 3, 3),
-('Passeio', 150.00, 'Conheça as belezas da cidade com nossos passeios turísticos.', 'Recepção', 'passeio.jpg', 4, 4),
-('Cofre', 50.00, 'Guardamos seus objetos de valor com total segurança.', 'Recepção', 'cofre.jpg', 2, 2),
-('Lavandeira', 25.00, 'Lavamos suas roupas com agilidade e qualidade.', 'Lavanderia', 'lavandeira.jpg', 2, 2),
-('Café', 5.00, 'Oferecemos café da manhã completo para você começar bem o dia.', 'Restaurante', 'cafe.jpg', 2, 2),
-('Massagem', 80.00, 'Relaxe com uma massagem terapêutica personalizada.', 'Spa', 'massagem.jpg', 3, 3);
+INSERT INTO servicos (nome_servico, preco, descricao, local, imagem) VALUES
+('Cofre', 50.00, 'Guardamos seus objetos de valor com total segurança.', 'Recepção', 'cofre.jpg'),
+('Lavandeira', 25.00, 'Lavamos suas roupas com agilidade e qualidade.', 'Lavanderia', 'lavandeira.jpg'),
+('Café', 5.00, 'Oferecemos café da manhã completo para você começar bem o dia.', 'Restaurante', 'cafe.jpg'),
+('Massagem', 80.00, 'Relaxe com uma massagem terapêutica personalizada.', 'Spa', 'massagem.jpg'),
+('Sala', 100.00, 'Locação de salas para eventos empresariais ou reuniões.', 'Sala de Reuniões', 'sala.jpg'),
+('Passeio', 150.00, 'Conheça as belezas da cidade com nossos passeios turísticos.', 'Recepção', 'passeio.jpg'),
+('Cofre', 50.00, 'Guardamos seus objetos de valor com total segurança.', 'Recepção', 'cofre.jpg'),
+('Lavandeira', 25.00, 'Lavamos suas roupas com agilidade e qualidade.', 'Lavanderia', 'lavandeira.jpg'),
+('Café', 5.00, 'Oferecemos café da manhã completo para você começar bem o dia.', 'Restaurante', 'cafe.jpg'),
+('Massagem', 80.00, 'Relaxe com uma massagem terapêutica personalizada.', 'Spa', 'massagem.jpg');
 
 
 -- Populando a tabela consumo

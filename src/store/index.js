@@ -22,10 +22,12 @@ export default createStore({
         //     commit('loadRooms', acomodacoes)
         // },
         loadRooms({ commit }) {
-            commit('loadRooms', acomodacoes)
+            axios.get('http://localhost:4000/api/acomodacoes').then((response) => {
+                commit('loadRooms', response.data)
+            })
         },
         loadUser({ commit }) {
-            axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
+            axios.get('http://localhost:4000/api/usuarios').then((response) => {
                 commit('loadUser', response.data)
             })
         },
