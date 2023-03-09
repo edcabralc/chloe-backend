@@ -58,16 +58,6 @@ export default {
 .menu-mobile ul {
     padding: 5px;
 }
-.menu-mobile li a {
-    color: #558e60;
-    padding: 15px;
-}
-
-.menu-mobile li a:hover {
-    color: #b9ad81;
-    padding: 15px;
-    background-color: #e1e6e1;
-}
 
 #menu-toggle {
     display: none;

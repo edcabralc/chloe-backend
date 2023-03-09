@@ -71,14 +71,14 @@ export default {
       cursor: pointer;
     }
   }
-  &_login {
-    background-color: $primary-green;
-    color: #fff;
-    &:hover {
-      filter: opacity(50%);
-      color: #fff;
-      cursor: pointer;
-    }
-  }
+  // &_login {
+  //   background-color: $primary-green;
+  //   color: #fff;
+  //   &:hover {
+  //     filter: opacity(50%);
+  //     color: #fff;
+  //     cursor: pointer;
+  //   }
+  // }
 }
 </style>
