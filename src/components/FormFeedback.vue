@@ -1,6 +1,6 @@
 <template>
     <main>
-        <h2 class="title title-feedback">Como foi sua Experiência conosco?</h2>
+        <h2 class="title title-feedback">Como foi sua experiência conosco?</h2>
         <div class="content-subtitle">
             <h4 class="subtitle">Conta pra gente!</h4>
             <img src="@/assets/images/message-alt.svg" alt="Icon Message" />
@@ -130,7 +130,26 @@ export default {
     margin: 50px;
 }
 .btn {
-    margin-top: 10px;
+  width: 288px;
+  height: auto;
+  border-radius: 9px;
+  border: none;
+  box-shadow: none;
+  font-size: 20px;
+  padding: 12px 22px;
+  color: #fff;
+  background-color: #558e60;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #558e60;
+  color: #fff;
+  opacity: 0.5;
+  transition: ease 0.2s;
+  cursor: pointer;
 }
 
 /* Style Star */
