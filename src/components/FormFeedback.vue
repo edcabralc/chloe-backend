@@ -211,6 +211,7 @@ export default {
     flex-direction: column;
     align-items: baseline;
     padding: 10px;
+    color: #2b2a26;
 }
 .feedback-descricao span:nth-of-type(1) {
     font-weight: bold;
