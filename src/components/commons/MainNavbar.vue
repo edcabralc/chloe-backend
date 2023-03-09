@@ -13,17 +13,15 @@
         </router-link>
       </li>
     </ul>
-    <NavMobile />
   </nav>
 </template>
 
 <script>
 import NavLink from "./NavLink.vue";
-import NavMobile from "./NavMobile.vue";
 
 export default {
   name: "MainNavbar",
-  components: { NavLink, NavMobile },
+  components: { NavLink },
 };
 </script>
 
