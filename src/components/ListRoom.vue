@@ -146,15 +146,23 @@
                         </p>
                         <input type="text" name="cupomDesconto" v-model="cupomDesconto" id="cupomDesconto" class="desconto" @blur="totalReserva()" />
                     </div>
-                    <!-- <link-button @click="openModal" href="/acomodacoes"
-              >Continuar</link-button
-            > -->
-                    <a class="btn" @click="openModal">Continuar</a>
+                    <!-- <a class="btn" @click="openModal">Continuar</a> -->
+                    <link-button @click="modalOpen" href="#">Continuar</link-button>
                 </div>
             </div>
         </section>
-        <ModalBook :lista="rooms" @click="modalOpen" v-show="modalOpen"></ModalBook>
+        <!-- <ModalBook :lista="rooms" @click="modalOpen" v-show="modalOpen"></ModalBook> -->
     </main>
+    <div id="modal-promocao" class="modal-container">
+        <div class="modal">
+            <button class="fechar">X</button>
+            <h3 class="subtitulo">Dados da Reserva</h3>
+            <form>
+                <!-- <input type="text" /> -->
+                <input type="button" class="modal-button" value="Confirmar Pedido" />
+            </form>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -196,15 +204,14 @@ export default {
             subtotal: '',
             total: '',
             carrServicos: [],
-            modalOpen: false,
         }
     },
     methods: {
-        openModal() {
-            this.modalOpen = !this.modalOpen
-            console.log(this)
-            console.log(this.modalOpen)
-        },
+        // openModal() {
+        //     this.modalOpen = !this.modalOpen
+        //     console.log(this)
+        //     console.log(this.modalOpen)
+        // },
         onToggle: (elem) => (elem = !elem),
         getItem: (arr, id) => {
             arr.filter((item, index, arrr) => {
@@ -258,6 +265,23 @@ export default {
                 this.total = this.subtotal
             }
         },
+
+        iniciaModal(modalId) {
+            const modal = document.getElementById(modalId)
+
+            if (modal) {
+                modal.classList.add('mostrar')
+                modal.addEventListener('click', (e) => {
+                    if (e.target.id == modalId || e.target.className == 'fechar') {
+                        modal.classList.remove('mostrar')
+                    }
+                })
+            }
+        },
+
+        modalOpen() {
+            this.iniciaModal('modal-promocao')
+        },
     },
     computed: {
         subTotalReserva() {
@@ -281,10 +305,85 @@ export default {
     created() {
         this.$store.dispatch('loadRooms')
     },
+    // mounted() {
+    //     this.iniciaModal('modal-promocao')
+    // },
 }
 </script>
 
 <style lang="scss">
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container.mostrar {
+    display: flex;
+}
+
+.modal {
+    background: white;
+    width: 60%;
+    min-width: 300px;
+    padding: 40px;
+    border: 10px solid #016956;
+    box-shadow: 0 0 0 10px white;
+    position: relative;
+}
+
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mostrar .modal {
+    animation: modal 0.3s;
+}
+
+.fechar {
+    position: absolute;
+    font-size: 1.2em;
+    top: -30px;
+    right: -30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid white;
+    background: #016956;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.modal-button {
+    height: auto;
+    border-radius: 9px;
+    border: none;
+    box-shadow: none;
+    font-size: 20px;
+    padding: 12px 22px;
+    color: #fff;
+    background-color: #558e60;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    text-align: center;
+}
+
 .container-tipo-acomodacao {
     flex: 2;
 }
