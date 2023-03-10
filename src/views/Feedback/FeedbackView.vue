@@ -1,6 +1,6 @@
 <template>
     <main>
-        <hero-banner title="Confortável como um Abraço!" class="feedback-hero" />
+        <hero-banner title="Confortável como um abraço!" class="feedback-hero" />
         <div class="container-feedback">
             <div class="content-feedback">
                 <div class="content-descricao" v-for="dados in acomodacao" :key="dados.id">
@@ -15,7 +15,7 @@
                         <img :src="`${dados.src}`" alt="" />
                     </div>
                 </div>
-                <button class="btn-feedback">Reservar</button>
+                <link-button href="/reservar" class="btn-feedback">Reservar</link-button>
             </div>
         </div>
         <div class="content-form">
@@ -26,6 +26,7 @@
 
 <script>
 import HeroBanner from '@/components/commons/HeroBanner'
+import LinkButton from '@/components/commons/LinkButton';
 import FormFeedback from '@/components/FormFeedback'
 import { Acomodacao } from '@/class/Acomodacao'
 import { acomodacoesData } from '@/helpers/AcomodacaoData'
@@ -42,6 +43,7 @@ export default {
     },
     components: {
         HeroBanner,
+        LinkButton,
         FormFeedback,
     },
     methods: {

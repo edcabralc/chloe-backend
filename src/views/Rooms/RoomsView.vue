@@ -39,7 +39,7 @@
             <div class="home-reserva-container">
                 <div class="home-reserva-content">
                     <h2>Faça agora mesmo sua reserva</h2>
-                    <link-button href="/reserva">Fazer reserva</link-button>
+                    <link-button href="/reservar">Fazer reserva</link-button>
                 </div>
                 <div class="home-reserva-image">
                     <img src="@/assets/images/bell.png" alt="Uma mão tocando em um sino" />
