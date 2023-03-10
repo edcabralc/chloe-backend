@@ -66,7 +66,7 @@
                     </form>
                     <div class="sign-in-help">
                         <h3>Não possui conta?</h3>
-                        <a href="register.html">Criar uma nova conta</a>
+                        <a href="/cadastrar">Criar uma nova conta</a>
                     </div>
                 </div>
             </div>
