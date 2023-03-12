@@ -12,10 +12,25 @@
 .home-acomodacoes {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 30px;
+  flex-direction: column;
 
   & ~ a {
     border: 1px solid black;
+  }
+}
+
+.home-acomodacoes-images {
+  display: flex;
+  max-width: 1090px;
+  gap: 32px;
+  margin-bottom: 1rem;
+
+  img {
+    flex: 0 1 300px;
+    border-radius: 6px;
+    width: min(300px, 30%);
   }
 }
 

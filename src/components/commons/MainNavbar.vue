@@ -13,17 +13,15 @@
         </router-link>
       </li>
     </ul>
-    <NavMobile />
   </nav>
 </template>
 
 <script>
 import NavLink from "./NavLink.vue";
-import NavMobile from "./NavMobile.vue";
 
 export default {
   name: "MainNavbar",
-  components: { NavLink, NavMobile },
+  components: { NavLink },
 };
 </script>
 
@@ -73,14 +71,14 @@ export default {
       cursor: pointer;
     }
   }
-  &_login {
-    background-color: $primary-green;
-    color: #fff;
-    &:hover {
-      filter: opacity(50%);
-      color: #fff;
-      cursor: pointer;
-    }
-  }
+  // &_login {
+  //   background-color: $primary-green;
+  //   color: #fff;
+  //   &:hover {
+  //     filter: opacity(50%);
+  //     color: #fff;
+  //     cursor: pointer;
+  //   }
+  // }
 }
 </style>

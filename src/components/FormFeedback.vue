@@ -1,6 +1,6 @@
 <template>
     <main>
-        <h2 class="title title-feedback">Como foi sua Experiência conosco?</h2>
+        <h2 class="title title-feedback">Como foi sua experiência conosco?</h2>
         <div class="content-subtitle">
             <h4 class="subtitle">Conta pra gente!</h4>
             <img src="@/assets/images/message-alt.svg" alt="Icon Message" />
@@ -41,10 +41,18 @@
                 <h3>Confira os Feedbacks</h3>
                 <hr />
                 <ul v-for="dados in dadosAvaliacao" :key="dados.descricao">
-                    <li>Nome: {{ dados.nome }} {{ dados.sobrenome }}</li>
-                    <!-- <li>Sobrenome: </li> -->
-                    <li>Descrição: {{ dados.descricao }}</li>
-                    <li>Avaliação: {{ dados.nota }}</li>
+                    <div class="feedback-descricao">
+                        <li><span>Nome:</span> {{ dados.nome }} {{ dados.sobrenome }}</li>
+                        <li><span>Descrição:</span> {{ dados.descricao }}</li>
+                        <ul class="feedback_avaliacao">
+                            <li>Avaliação:</li>
+                            <li :class="['star-icon', { ativo: dados.nota == 1 }]" data-avaliacao="1"></li>
+                            <li :class="['star-icon', { ativo: dados.nota == 2 }]" data-avaliacao="2"></li>
+                            <li :class="['star-icon', { ativo: dados.nota == 3 }]" data-avaliacao="3"></li>
+                            <li :class="['star-icon', { ativo: dados.nota == 4 }]" data-avaliacao="4"></li>
+                            <li :class="['star-icon', { ativo: dados.nota == 5 }]" data-avaliacao="5"></li>
+                        </ul>
+                    </div>
                     <hr />
                     <br />
                 </ul>
@@ -64,6 +72,7 @@ export default {
             mensagem: '',
             notaAvaliacao: '1',
             dadosAvaliacao: [],
+            testeClass: 'text',
         }
     },
 
@@ -98,11 +107,14 @@ export default {
 /* Style de Titles and Form */
 .title-feedback {
     font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
 }
 .content-subtitle {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
     gap: 10px;
 }
 .subtitle {
@@ -118,7 +130,26 @@ export default {
     margin: 50px;
 }
 .btn {
-    margin-top: 10px;
+  width: 288px;
+  height: auto;
+  border-radius: 9px;
+  border: none;
+  box-shadow: none;
+  font-size: 20px;
+  padding: 12px 22px;
+  color: #fff;
+  background-color: #558e60;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #558e60;
+  color: #fff;
+  opacity: 0.5;
+  transition: ease 0.2s;
+  cursor: pointer;
 }
 
 /* Style Star */
@@ -170,7 +201,6 @@ export default {
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 400px;
 }
 
@@ -179,10 +209,31 @@ export default {
     border-radius: 20px;
     width: 700px;
 }
-
 .feedback > h3 {
     margin: 20px;
     font-size: 30px;
+}
+
+.feedback_avaliacao {
+    // justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: red;
+}
+.feedback_avaliacao li:nth-of-type(1) {
+    font-weight: bold;
+    margin-left: 0px;
+}
+.feedback-descricao {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 10px;
+    color: #2b2a26;
+}
+.feedback-descricao span:nth-of-type(1) {
+    font-weight: bold;
 }
 
 ul > li {
