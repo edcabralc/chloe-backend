@@ -22,7 +22,28 @@ export const getById = async (req: Request, res: Response) => {
         res.status(404).json({ error: message })
     }
 }
-export const editById = async (req: Request, res: Response) => {}
+export const editById = async (req: Request, res: Response) => {
+    const { id } = req.params
+    const { tipo, status, descricao, preco, imagem } = req.body
+
+    try {
+        const list = await Room.findByPk(id)
+        if (!list) {
+            throw new Error('Usuário não encontrado')
+        }
+
+        list.tipo = tipo
+        list.status = status
+        list.descricao = descricao
+        list.preco = preco
+        list.imagem = imagem
+        await list.save()
+
+        return res.json({ message: list })
+    } catch ({ message }) {
+        return res.status(404).json({ error: message })
+    }
+}
 
 export const deleteById = async (req: Request, res: Response) => {
     const { id } = req.params
