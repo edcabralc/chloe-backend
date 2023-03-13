@@ -5,7 +5,7 @@ export default {
 
     methods: {
         register() {
-            return axios.post(("http://localhost:3000/todos", newUser))
-        }
+            return axios.post(('http://localhost:3000/todos', newUser))
+        },
     },
 }

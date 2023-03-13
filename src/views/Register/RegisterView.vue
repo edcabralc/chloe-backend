@@ -1,5 +1,5 @@
 <template>
-    <MainHeader />
+    <!-- <MainHeader /> -->
     <main>
         <div class="register-main cover-background">
             <h1 class="hero-title">Registro de Novo Usuário</h1>
@@ -37,28 +37,34 @@
             </div>
         </section>
     </main>
-    <MainFooter />
+    <!-- <MainFooter /> -->
 </template>
 
 <script>
-import MainFooter from '../../components/MainFooter.vue'
-import MainHeader from '../../components/MainHeader.vue'
-import newRegister from '../../helpers/newRegister.js'
+// import MainFooter from '../../components/MainFooter.vue'
+// import MainHeader from '../../components/MainHeader.vue'
+import newRegister from '@/helpers/newRegister.js'
 
 export default {
     name: 'RegisterView',
-    components: { MainHeader, MainFooter, newRegister },
+    components: { /*MainHeader, MainFooter, */ newRegister },
     data() {
+        // newUser = {
+        //     nome: nome,
+        //     email: email,
+        //     dataNasc: date,
+        //     pwd: pass,
+        // }
         newUser = {
-            nome: nome,
-            email: email,
-            dataNasc: date,
-            pwd: pass,
+            nome: 'Teste',
+            email: 'email',
+            dataNasc: 'date',
+            pwd: 'pass',
         }
     },
     props: {
-      newUser: {}
-    }
+        newUser: {},
+    },
 }
 </script>
 
