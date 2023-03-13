@@ -29,7 +29,7 @@ export const editById = async (req: Request, res: Response) => {
     try {
         const list = await Room.findByPk(id)
         if (!list) {
-            throw new Error('Usuário não encontrado')
+            throw new Error('Acomodação não encontrada')
         }
 
         list.tipo = tipo
