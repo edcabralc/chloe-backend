@@ -14,7 +14,7 @@ export const User = sequelize.define<UserInstance>(
     'User',
     {
         id: { primaryKey: true, autoIncrement: true, type: DataTypes.INTEGER },
-        nome_usuario: { type: DataTypes.STRING },
+        nome_usuario: { defaultValue: false, type: DataTypes.STRING },
         email_usuario: { defaultValue: false, type: DataTypes.STRING },
         password: { defaultValue: false, type: DataTypes.STRING },
         nivel: { defaultValue: false, type: DataTypes.STRING },

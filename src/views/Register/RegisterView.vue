@@ -1,5 +1,5 @@
 <template>
-    <MainHeader />
+    <!-- <MainHeader /> -->
     <main>
         <div class="register-main cover-background">
             <h1 class="hero-title">Registro de Novo Usuário</h1>
@@ -37,7 +37,7 @@
             </div>
         </section>
     </main>
-    <MainFooter />
+    <!-- <MainFooter /> -->
 </template>
 
 <script>

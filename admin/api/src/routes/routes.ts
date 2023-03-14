@@ -8,12 +8,15 @@ router.get('/ping', (req, res) => {
     res.json({ pong: true })
 })
 
-router.get('/usuarios', UserController.getAll)
+router.post('/usuarios', UserController.getAll)
+router.post('/usuario/registrar', UserController.createUser)
 router.post('/usuario/:id', UserController.getById)
-router.put('/usuario/:id', UserController.editById)
+router.put('/usuario/editar/:id', UserController.editById)
 router.delete('/usuario/remover/:id', UserController.deleteById)
 
 router.get('/acomodacoes', RoomController.getAll)
-router.get('/acomodacoes', RoomController.getAll)
+router.get('/acomodacao/:id', RoomController.getById)
+router.put('/acomodacao/editar/:id', RoomController.editById)
+router.delete('/acomodacao/remover/:id', RoomController.deleteById)
 
 export default router
