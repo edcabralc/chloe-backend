@@ -1,9 +1,16 @@
 import { Request, Response } from 'express'
+import { Address } from '../models/Address'
 import { User } from '../models/User'
 
 export const getAll = async (req: Request, res: Response) => {
     try {
-        const list = await User.findAll()
+        const list = await User.findAll({
+            include: [
+                {
+                    model: Address,
+                },
+            ],
+        })
         if (list) {
             res.json({ list })
         }
