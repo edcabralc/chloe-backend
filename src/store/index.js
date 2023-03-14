@@ -8,7 +8,13 @@ export default createStore({
         user: [],
         // rooms,
     },
-    getters: {},
+    getters: {
+        defaultRooms(state) {
+            const teste = state.acomodacoes
+            const teste2 = teste.list.filter(({ tipo }) => tipo === 'Quarto')
+            return teste2
+        },
+    },
     mutations: {
         loadRooms(state, acomodacoes) {
             state.acomodacoes = acomodacoes

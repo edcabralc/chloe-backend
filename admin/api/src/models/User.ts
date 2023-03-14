@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize'
 import { sequelize } from '../instances/mysql'
+import { Address } from './Address'
 
 export interface UserInstance extends Model {
     id: number
@@ -25,3 +26,13 @@ export const User = sequelize.define<UserInstance>(
         timestamps: true,
     }
 )
+
+// User.hasOne(Address, {
+//     foreignKey:'',
+//     as:'address'
+// })
+
+User.hasOne(Address, {
+    foreignKey: 'id',
+    // as:'address'
+})
