@@ -13,19 +13,19 @@
                     <div class="itens-form">
                         <div class="cells">
                             <label for="Nome">Nome Completo: </label>
-                            <input type="text" v-bind:name="newUser.nome" />
+                            <input type="text" v-model="newUser.nome" />
                         </div>
                         <div class="cells">
                             <label for="email">E-Mail: </label>
-                            <input type="email" v-bind:name="newUser.email" />
+                            <input type="email" v-model="newUser.email" />
                         </div>
                         <div class="cells">
                             <label for="Telefone">Telefone: </label>
-                            <input type="number" v-bind:name="tel"/>
+                            <input type="number" v-model="newUser.tel" />
                         </div>
                         <div class="cells">
                             <label for="nascimento">Data de Nascimento </label>
-                            <input type="date" v-bind:name="date" />
+                            <input type="date" v-bind="newUser.date" />
                         </div>
                         <div class="cells">
                             <label for="senha">Senha </label>
@@ -41,27 +41,26 @@
 </template>
 
 <script>
-import newRegister from '@/helpers/newRegister.js'
-
 export default {
     name: 'RegisterView',
-    components: { newRegister },
+    // components: { newRegister, router },
     data() {
         return {
-            nome1: nome.value,
-            email1: email.value,
-            date1: date.value,
-            pass1: pass.value,
             newUser: {
-                nome1: 'nome',
-                email1: 'email',
-                date1: 'dataNasc',
-                pass1: 'pwd',
+                nome: 'nome',
+                email: 'email',
+                date: 'dataNasc',
+                pass: 'pwd',
             },
         }
     },
-    props: {
-        newUser: {},
+    methods: {},
+    register() {
+        // check blank
+        if (this.newUser.name === '' || this.newUser.email === '' || this.newUser.pass === '') {
+            return alert('Atenção! Os campos usuário e senha devem ser preenchidos.')
+        }
+        this.$store.dispatch('/usuario/registrar', this.newUser)
     },
 }
 </script>
