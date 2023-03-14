@@ -9,6 +9,7 @@
                             <h2>{{ titleMinhaReserva }}</h2>
                             <p>{{ paragraphMinhaReserva }}</p>
                             {{ acomodacoes }}
+                            {{ getDefaultRooms }}
                         </div>
                         <div class="flex">
                             <div class="input-group">
@@ -299,6 +300,9 @@ export default {
         },
         acomodacoes() {
             return this.$store.state.acomodacoes
+        },
+        getDefaultRooms() {
+            return this.$store.getters.defaultRooms
         },
     },
     components: { ModalBook, HeroBanner, LinkButton },
