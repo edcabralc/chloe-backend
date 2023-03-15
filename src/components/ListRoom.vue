@@ -8,8 +8,8 @@
                         <div>
                             <h2>{{ titleMinhaReserva }}</h2>
                             <p>{{ paragraphMinhaReserva }}</p>
-                            {{ acomodacoes }}
-                            {{ getDefaultRooms }}
+                            <!-- {{ acomodacoes }} -->
+                            {{ getAcomodacoes }}
                         </div>
                         <div class="flex">
                             <div class="input-group">
@@ -53,7 +53,6 @@
             </div>
         </section>
         <section class="section">
-            ecti
             <div class="container">
                 <div class="container-tipo-acomodacao">
                     <h2>{{ titleH2 }}</h2>
@@ -64,7 +63,7 @@
                         :key="index"
                     >
                         <input class="item-check" type="radio" name="acomodacao" :id="title" :value="title" />
-                        <!--:checked="!checked"-->
+
                         <label :for="title" @click="getAcomodacao(title, price)">
                             <div class="item-label">
                                 <div>
@@ -152,7 +151,6 @@
                 </div>
             </div>
         </section>
-        <!-- <ModalBook :lista="rooms" @click="modalOpen" v-show="modalOpen"></ModalBook> -->
     </main>
     <div id="modal-promocao" class="modal-container">
         <div class="modal">
@@ -208,18 +206,6 @@ export default {
         }
     },
     methods: {
-        // openModal() {
-        //     this.modalOpen = !this.modalOpen
-        //     console.log(this)
-        //     console.log(this.modalOpen)
-        // },
-        onToggle: (elem) => (elem = !elem),
-        getItem: (arr, id) => {
-            arr.filter((item, index, arrr) => {
-                if (item.id == id) {
-                }
-            })
-        },
         getAcomodacao(title, price) {
             this.acomodacao = title
             this.valorAcomodacao = parseInt(price).toFixed(2)
@@ -301,8 +287,8 @@ export default {
         acomodacoes() {
             return this.$store.state.acomodacoes
         },
-        getDefaultRooms() {
-            return this.$store.getters.defaultRooms
+        getAcomodacoes() {
+            return this.$store.getters.acomodacoesPadrao
         },
     },
     components: { ModalBook, HeroBanner, LinkButton },
@@ -315,7 +301,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .modal-container {
     width: 100vw;
     height: 100vh;

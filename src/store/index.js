@@ -1,6 +1,5 @@
 import { createStore } from 'vuex'
-import { acomodacoes } from '@/helpers/AcomodacaoData'
-import axios from 'axios'
+import { api } from '@/services/api'
 
 export default createStore({
     state: {
@@ -9,10 +8,9 @@ export default createStore({
         // rooms,
     },
     getters: {
-        defaultRooms(state) {
-            const teste = state.acomodacoes
-            const teste2 = teste.list.filter(({ tipo }) => tipo === 'Quarto')
-            return teste2
+        acomodacoesPadrao(state) {
+            const { list } = state.acomodacoes
+            return list.filter(({ tipo }) => tipo === 'Quarto')
         },
     },
     mutations: {
@@ -24,18 +22,14 @@ export default createStore({
         },
     },
     actions: {
-        // loadRooms({ commit }) {
-        //     commit('loadRooms', acomodacoes)
-        // },
-        loadRooms({ commit }) {
-            axios.get('http://localhost:4000/api/acomodacoes').then((response) => {
-                commit('loadRooms', response.data)
-            })
+        loadRooms: async ({ commit }) => {
+            const response = await api.get('/acomodacoes')
+            commit('loadRooms', response.data)
         },
-        loadUser({ commit }) {
-            axios.get('http://localhost:4000/api/usuarios').then((response) => {
-                commit('loadUser', response.data)
-            })
+
+        loadUser: async ({ commit }) => {
+            const response = await http.get('/usuarios')
+            commit('loadUser', response.data)
         },
     },
     modules: {},
