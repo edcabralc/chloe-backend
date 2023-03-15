@@ -27,12 +27,7 @@ export const User = sequelize.define<UserInstance>(
     }
 )
 
-// User.hasOne(Address, {
-//     foreignKey:'',
-//     as:'address'
-// })
-
 User.hasOne(Address, {
-    foreignKey: 'id',
-    // as:'address'
+    foreignKey: 'usuario_id',
+    as: 'endereco',
 })

@@ -1,7 +1,5 @@
 import { Model, DataTypes } from 'sequelize'
 import { sequelize } from '../instances/mysql'
-import { User } from './User'
-
 export interface AddressInstance extends Model {
     id: number
     cep: string
@@ -27,7 +25,7 @@ export const Address = sequelize.define<AddressInstance>(
         cidade: { type: DataTypes.STRING },
         estado: { type: DataTypes.STRING },
         pais: { type: DataTypes.STRING },
-        usuario: { type: DataTypes.NUMBER },
+        usuario_id: { type: DataTypes.NUMBER },
     },
     {
         tableName: 'endereco',

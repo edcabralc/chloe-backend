@@ -8,6 +8,7 @@ export const getAll = async (req: Request, res: Response) => {
             include: [
                 {
                     model: Address,
+                    as: 'endereco',
                 },
             ],
         })
@@ -22,7 +23,15 @@ export const getAll = async (req: Request, res: Response) => {
 export const getById = async (req: Request, res: Response) => {
     const { id } = req.params
     try {
-        const list = await User.findByPk(id)
+        const list = await User.findOne({
+            where: { id },
+            include: [
+                {
+                    model: Address,
+                    as: 'endereco',
+                },
+            ],
+        })
         if (!list) {
             throw new Error('Usuário não encontrado')
         }
