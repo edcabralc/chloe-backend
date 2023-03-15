@@ -1,7 +1,9 @@
 import { Router } from 'express'
-import * as UserController from '../controllers/userController'
-import * as RoomController from '../controllers/roomController'
-import * as BookController from '../controllers/bookController'
+import { upload } from '../middlewares/uploadFiles'
+import * as UserController from '../controllers/user.controller'
+import * as RoomController from '../controllers/room.controller'
+import * as BookController from '../controllers/book.controller'
+import * as UploadController from '../controllers/upload.controller'
 
 const router = Router()
 
@@ -21,5 +23,8 @@ router.put('/acomodacao/editar/:id', RoomController.editById)
 router.delete('/acomodacao/remover/:id', RoomController.deleteById)
 
 router.post('/reservas', BookController.getAll)
+
+router.post('/upload', upload.single('avatar'), UploadController.sendFile)
+// router.post('/uploads' UploadController.sendFiles)
 
 export default router
