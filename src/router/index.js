@@ -10,6 +10,8 @@ import RegisterView from '@/views/Register/RegisterView'
 import FeedbackView from '@/views/Feedback/FeedbackView'
 import MainHeader from '@/components/commons/MainHeader'
 import MainFooter from '@/components/commons/MainFooter'
+import TesteView from '@/views/Teste/TesteView'
+import TestAcomodacoes from '@/views/Dashboard/Acomodacoes/TestAcomodacoes'
 
 const routes = [
     {
@@ -86,15 +88,20 @@ const routes = [
         path: '/painel',
         name: 'painel',
         components: {
-            mainpage: DashboardView,
+            painel: DashboardView,
         },
-    },
-    {
-        path: '/painel',
-        name: 'painel',
-        components: {
-            mainpage: DashboardView,
-        },
+        children: [
+            {
+                path: 'usuarios',
+                name: 'usuarios',
+                component: TesteView,
+            },
+            {
+                path: 'acomodacoes',
+                name: 'acomodacoes',
+                component: TestAcomodacoes,
+            },
+        ],
     },
 ]
 

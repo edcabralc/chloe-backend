@@ -25,6 +25,6 @@ router.delete('/acomodacao/remover/:id', RoomController.deleteById)
 router.post('/reservas', BookController.getAll)
 
 router.post('/upload', upload.single('avatar'), UploadController.sendFile)
-// router.post('/uploads' UploadController.sendFiles)
+router.post('/uploads', upload.fields([{ name: 'galeria', maxCount: 3 }]), UploadController.sendFiles)
 
 export default router

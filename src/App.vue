@@ -3,7 +3,7 @@
     <router-view name="mainpage"></router-view>
     <router-view name="footer"></router-view>
     <router-view name="login"></router-view>
-    <router-view name="teste"></router-view>
+    <router-view name="painel"></router-view>
 </template>
 
 <script>
