@@ -30,7 +30,7 @@
 }
 
 .aside-menu {
-    background-color: red;
+    // background-color: red;
     flex-direction: column;
     display: flex;
     gap: 30px;
@@ -45,13 +45,23 @@
     justify-self: flex-end;
 }
 
-.menu-dashboard a {
-    padding: 30px 0;
+.menu-dashboard li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 15px;
     width: 100%;
 }
 
-.menu-dashboard a:hover {
-    background-color: blue;
+.menu-dashboard li a {
+    width: 100%;
+    padding: 30px 0px;
+    // background-color: red;
+}
+
+.menu-dashboard li:hover {
+    background-color: $primary-green;
+    color: #f7f7f7;
 }
 
 .container-dashboard {

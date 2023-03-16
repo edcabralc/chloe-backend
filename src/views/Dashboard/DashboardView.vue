@@ -11,7 +11,8 @@
             <div class="aside-menu">
                 <ul class="menu-dashboard">
                     <li>
-                        <img src="" alt="" srcset="" />
+                        <!-- <font-awesome-icon icon="fa-regular fa-house" /> -->
+                        <i class="fa-regular fa-house"></i>
                         <router-link to="/painel">Inicio</router-link>
                     </li>
                     <li>
