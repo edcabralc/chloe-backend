@@ -3,13 +3,22 @@
 .main {
     display: grid;
     width: 100%;
-    height: 100vh;
-    gap: 0 30px;
     grid-template-columns: 300px 1fr;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
+        'logo main'
         'aside main'
-        'aside main';
+        'footer main';
+}
+
+.aside-header {
+    grid-area: logo;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 30px;
+    width: 100%;
 }
 
 .aside {
@@ -17,12 +26,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: flex-start;
     padding: 30px;
     color: $primary-green;
-    background-color: #f7f7f7;
-    // background-color: red;
 }
 
 .logo {
@@ -30,19 +36,40 @@
 }
 
 .aside-menu {
-    // background-color: red;
     flex-direction: column;
     display: flex;
     gap: 30px;
     width: 100%;
 }
 
-.aside-header {
-    padding-bottom: 30px;
+.aside-profile {
+    // background-color: red;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+    color: $titles-gray;
+    margin-bottom: 30px;
+}
+
+.aside-profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: solid 5px white;
+    box-shadow: 0 0px 0px 3px $primary-gold;
 }
 
 .aside-footer {
-    justify-self: flex-end;
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 30px;
+    width: 100%;
 }
 
 .menu-dashboard li {
@@ -55,8 +82,7 @@
 
 .menu-dashboard li a {
     width: 100%;
-    padding: 30px 0px;
-    // background-color: red;
+    padding: 24px 0px;
 }
 
 .menu-dashboard li:hover {
@@ -67,7 +93,6 @@
 .container-dashboard {
     grid-area: main;
     padding: 30px;
-    // height: 150vh;
-    // width: 100%;
-    // background-color: darkgray;
+    height: 100vh;
+    background-color: #f7f7f7;
 }
