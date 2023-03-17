@@ -11,21 +11,29 @@
             <div class="aside-menu">
                 <ul class="menu-dashboard">
                     <li>
-                        <!-- <font-awesome-icon icon="fa-regular fa-house" /> -->
-                        <i class="fa-regular fa-house"></i>
+                        <font-awesome-icon icon="fa-solid fa-house" />
                         <router-link to="/painel">Inicio</router-link>
                     </li>
                     <li>
+                        <font-awesome-icon icon="fa-solid fa-user" />
                         <router-link to="/painel/usuarios">Usuários</router-link>
                     </li>
                     <li>
+                        <font-awesome-icon icon="fa-solid fa-hotel" />
                         <router-link to="/painel/acomodacoes">Acomodações</router-link>
                     </li>
                     <li>
-                        <router-link to="/painel/acomodacoes">Reservas</router-link>
+                        <font-awesome-icon icon="fa-solid fa-address-book" />
+                        <router-link to="/painel/reservas">Reservas</router-link>
                     </li>
                     <li>
-                        <router-link to="/painel/acomodacoes">Serviços</router-link>
+                        <font-awesome-icon icon="fa-solid fa-chess-queen" />
+                        <router-link to="/painel/servicos">Serviços</router-link>
+                    </li>
+                    <li>
+                        <font-awesome-icon icon="fa-solid fa-star" />
+                        <i class="fa-sharp fa-regular fa-star"></i>
+                        <router-link to="/painel/avaliacoes">Avaliações</router-link>
                     </li>
                 </ul>
             </div>
