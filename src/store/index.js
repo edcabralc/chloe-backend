@@ -4,7 +4,7 @@ import { api } from '@/services/api'
 export default createStore({
     state: {
         acomodacoes: [],
-        user: [],
+        user: {},
         // rooms,
     },
     getters: {
@@ -20,6 +20,9 @@ export default createStore({
         loadUser(state, user) {
             state.user = user
         },
+        createUser(state, user) {
+            state.user = user
+        }
     },
     actions: {
         loadRooms: async ({ commit }) => {
@@ -31,6 +34,19 @@ export default createStore({
             const response = await http.get('/usuarios')
             commit('loadUser', response.data)
         },
+        createUser: async ({ state }) => {
+            try {
+              const response = await api.post('/usuario/registrar', state.user);
+              console.log(response);
+            } catch (error) {
+              console.error(error);
+            }
+          },
+
+        // createUser: async ({ commit }) => {
+        //     const response = await http.post('/usuario/registrar')
+        //     commit('createUser', response.data)
+        // },
     },
     modules: {},
 })
