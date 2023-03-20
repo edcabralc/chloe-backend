@@ -66,11 +66,14 @@ export default {
         },
     },
     methods: {
-        ...mapActions(['register']),
+        // ...mapActions(['register']),
+
         register() {
-            this.register().then(() => {
-                this.form = {}
-            })
+            this.$store.dispatch('createUser', this.user)
+            //     this.register().then(() => {
+            //         this.form = {}
+            //     })
+            console.log('oi')
         },
     },
 }
