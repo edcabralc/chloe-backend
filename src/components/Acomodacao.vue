@@ -1,4 +1,4 @@
-7<template>
+<template>
     <div class="flex-img">
         <div class="foto-hover" v-for="acomodacao in acomodacoesData" :key="acomodacao.titulo">
             <div class="foto-info" :data-id="acomodacao.id" @click="selecionarAcomodacao">

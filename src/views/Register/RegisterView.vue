@@ -31,7 +31,7 @@
                             <label for="senha">Senha </label>
                             <input type="password" v-model="form.pass" />
                         </div>
-                        <input class="btn" type="submit" value="Enviar" @click.prevent7="register" />
+                        <input class="btn" type="submit" value="Enviar" @click.prevent="register" />
                     </div>
                 </article>
             </div>

@@ -22,7 +22,7 @@ export default createStore({
         },
         createUser(state, user) {
             state.user = user
-        }
+        },
     },
     actions: {
         loadRooms: async ({ commit }) => {
@@ -31,17 +31,17 @@ export default createStore({
         },
 
         loadUser: async ({ commit }) => {
-            const response = await http.get('/usuarios')
+            const response = await api.post('/usuarios')
             commit('loadUser', response.data)
         },
         createUser: async ({ state }) => {
             try {
-              const response = await api.post('/usuario/registrar', state.user);
-              console.log(response);
+                const response = await api.post('/usuario/registrar', state.user)
+                console.log(response)
             } catch (error) {
-              console.error(error);
+                console.error(error)
             }
-          },
+        },
 
         // createUser: async ({ commit }) => {
         //     const response = await http.post('/usuario/registrar')

@@ -9,8 +9,6 @@
         </header>
         <aside class="aside">
             <div class="aside-profile">
-                <!-- <img src="https://picsum.photos/id/1020/600/400" alt="" /> -->
-                <!-- <img src="https://picsum.photos/id/548/600/400" alt="" /> -->
                 <img src="https://picsum.photos/id/839/600/400" alt="" />
                 <div>
                     <h4>Fulano da Silva</h4>
@@ -51,7 +49,7 @@
         </div>
         <main class="container-dashboard">
             <section>
-                <h1>Olá aqui tem acomodações</h1>
+                <h1>Olá aqui tem: {{ slug }}</h1>
                 <div class="conteudo">
                     <router-view></router-view>
                 </div>
@@ -63,7 +61,7 @@
 <script>
 export default {
     name: 'DashboardView',
-    // params: ['teste'],
+    props: ['slug'],
 }
 </script>
 
