@@ -10,29 +10,23 @@
         <section class="section">
             <div class="container">
                 <article class="register">
-                    <div class="itens-form">
-                        <div class="cells">
-                            <label for="Nome">Nome Completo: </label>
-                            <input type="text" v-model="form.nome" />
+                    <form enctype="application/x-www-form-urlencoded" method="post">
+                        <div class="itens-form">
+                            <div class="cells">
+                                <label for="nome_usuario">Nome Completo:</label>
+                                <input type="text" name="nome_usuario" v-model="nome_usuario" />
+                            </div>
+                            <div class="cells">
+                                <label for="email_usuario">E-Mail:</label>
+                                <input type="email" name="email_usuario" v-model="email_usuario" />
+                            </div>
+                            <div class="cells">
+                                <label for="password">Senha</label>
+                                <input type="password" name="password" v-model="password" />
+                            </div>
+                            <input class="btn" type="submit" value="Enviar" @click.prevent="register()" />
                         </div>
-                        <div class="cells">
-                            <label for="email">E-Mail: </label>
-                            <input type="email" v-model="form.email" />
-                        </div>
-                        <!-- <div class="cells">
-                            <label for="Telefone">Telefone: </label>
-                            <input type="number" v-model="newUser.tel" />
-                        </div>
-                        <div class="cells">
-                            <label for="nascimento">Data de Nascimento </label>
-                            <input type="date" v-model="newUser.date" />
-                        </div> -->
-                        <div class="cells">
-                            <label for="senha">Senha </label>
-                            <input type="password" v-model="form.pass" />
-                        </div>
-                        <input class="btn" type="submit" value="Enviar" @click.prevent="register" />
-                    </div>
+                    </form>
                 </article>
             </div>
         </section>
@@ -45,23 +39,30 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
     name: 'RegisterView',
-    // data() {
-    //     return {
-    //         dadosFormulario: {
-    //             nome: '',
-    //             email: '',
-    //             pass: '',
-    //         },
-    //     }
-    // },
     computed: {
-        ...mapState(['user']),
-        form: {
+        // ...mapState(['user']),
+        nome_usuario: {
             get() {
-                return this.user
+                return this.$store.state.user.nome_usuario
             },
-            set(user) {
-                this.$store.commit('createUser', user)
+            set(value) {
+                this.$store.commit('updateUser', { nome_usuario: value })
+            },
+        },
+        email_usuario: {
+            get() {
+                return this.$store.state.user.email_usuario
+            },
+            set(value) {
+                this.$store.commit('updateUser', { email_usuario: value })
+            },
+        },
+        password: {
+            get() {
+                return this.$store.state.user.password
+            },
+            set(value) {
+                this.$store.commit('updateUser', { password: value })
             },
         },
     },
@@ -69,11 +70,7 @@ export default {
         // ...mapActions(['register']),
 
         register() {
-            this.$store.dispatch('createUser', this.user)
-            //     this.register().then(() => {
-            //         this.form = {}
-            //     })
-            console.log('oi')
+            this.$store.dispatch('createUser', this.$store.state.user)
         },
     },
 }

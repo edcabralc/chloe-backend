@@ -4,8 +4,11 @@ import { api } from '@/services/api'
 export default createStore({
     state: {
         acomodacoes: [],
-        user: [],
-        // rooms,
+        user: {
+            nome_usuario: '',
+            email_usuario: '',
+            password: '',
+        },
     },
     getters: {
         acomodacoesPadrao(state) {
@@ -20,8 +23,9 @@ export default createStore({
         loadUser(state, user) {
             state.user = user
         },
-        createUser(state, user) {
-            state.user = user
+
+        updateUser(state, payload) {
+            state.user = Object.assign(state.user, payload)
         },
     },
     actions: {
@@ -34,21 +38,9 @@ export default createStore({
             const { data } = await api.post('/usuarios')
             commit('loadUser', data)
         },
-        createUser: async ({ commit }, payload) => {
-            const { data } = await api.post('/usuario/registrar', payload)
-            console.log(payload, data)
-            commit('creatUser', payload)
-            // try {
-            //     console.log(response)
-            // } catch (error) {
-            //     console.error(error)
-            // }
+        createUser: async (_, payload) => {
+            api.post('/usuario/registrar', payload)
         },
-
-        // createUser: async ({ commit }) => {
-        //     const response = await http.post('/usuario/registrar')
-        //     commit('createUser', response.data)
-        // },
     },
     modules: {},
 })

@@ -26,6 +26,7 @@
                     <td>{{ usuario.nome_usuario }}</td>
                     <td>{{ usuario.email_usuario }}</td>
                     <td>{{ usuario.status }}</td>
+                    <td>{{ usuario.nivel }}</td>
                 </tr>
             </tbody>
         </table>
