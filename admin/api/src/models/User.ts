@@ -18,8 +18,8 @@ export const User = sequelize.define<UserInstance>(
         nome_usuario: { defaultValue: false, type: DataTypes.STRING },
         email_usuario: { defaultValue: false, type: DataTypes.STRING },
         password: { defaultValue: false, type: DataTypes.STRING },
-        nivel: { defaultValue: false, type: DataTypes.STRING },
-        status: { defaultValue: false, type: DataTypes.STRING },
+        nivel: { defaultValue: 'padrao', type: DataTypes.STRING },
+        status: { defaultValue: 'ativo', type: DataTypes.STRING },
     },
     {
         tableName: 'usuario',
