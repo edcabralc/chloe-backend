@@ -10,29 +10,23 @@
         <section class="section">
             <div class="container">
                 <article class="register">
-                    <div class="itens-form">
-                        <div class="cells">
-                            <label for="Nome">Nome Completo: </label>
-                            <input type="text" v-model="newUser.nome" />
+                    <form enctype="application/x-www-form-urlencoded" method="post">
+                        <div class="itens-form">
+                            <div class="cells">
+                                <label for="nome_usuario">Nome Completo:</label>
+                                <input type="text" name="nome_usuario" v-model="nome_usuario" />
+                            </div>
+                            <div class="cells">
+                                <label for="email_usuario">E-Mail:</label>
+                                <input type="email" name="email_usuario" v-model="email_usuario" />
+                            </div>
+                            <div class="cells">
+                                <label for="password">Senha</label>
+                                <input type="password" name="password" v-model="password" />
+                            </div>
+                            <input class="btn" type="submit" value="Enviar" @click.prevent="register()" />
                         </div>
-                        <div class="cells">
-                            <label for="email">E-Mail: </label>
-                            <input type="email" v-model="newUser.email" />
-                        </div>
-                        <div class="cells">
-                            <label for="Telefone">Telefone: </label>
-                            <input type="number" v-model="newUser.tel" />
-                        </div>
-                        <div class="cells">
-                            <label for="nascimento">Data de Nascimento </label>
-                            <input type="date" v-bind="newUser.date" />
-                        </div>
-                        <div class="cells">
-                            <label for="senha">Senha </label>
-                            <input type="password" v-bind:name="pass" />
-                        </div>
-                        <input class="btn" type="submit" value="Enviar" @click="register()" />
-                    </div>
+                    </form>
                 </article>
             </div>
         </section>
@@ -41,26 +35,43 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
     name: 'RegisterView',
-    // components: { newRegister, router },
-    data() {
-        return {
-            newUser: {
-                nome: 'nome',
-                email: 'email',
-                date: 'dataNasc',
-                pass: 'pwd',
+    computed: {
+        // ...mapState(['user']),
+        nome_usuario: {
+            get() {
+                return this.$store.state.user.nome_usuario
             },
-        }
+            set(value) {
+                this.$store.commit('updateUser', { nome_usuario: value })
+            },
+        },
+        email_usuario: {
+            get() {
+                return this.$store.state.user.email_usuario
+            },
+            set(value) {
+                this.$store.commit('updateUser', { email_usuario: value })
+            },
+        },
+        password: {
+            get() {
+                return this.$store.state.user.password
+            },
+            set(value) {
+                this.$store.commit('updateUser', { password: value })
+            },
+        },
     },
-    methods: {},
-    register() {
-        // check blank
-        if (this.newUser.name === '' || this.newUser.email === '' || this.newUser.pass === '') {
-            return alert('Atenção! Os campos usuário e senha devem ser preenchidos.')
-        }
-        this.$store.dispatch('/usuario/registrar', this.newUser)
+    methods: {
+        // ...mapActions(['register']),
+
+        register() {
+            this.$store.dispatch('createUser', this.$store.state.user)
+        },
     },
 }
 </script>

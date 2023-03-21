@@ -42,14 +42,19 @@ export const getById = async (req: Request, res: Response) => {
 }
 
 export const createUser = async (req: Request, res: Response) => {
-    const { nome_usuario, email_usuario, password, nivel, status } = req.body
-
+    const { nome_usuario, email_usuario, password } = req.body
     try {
-        if (req.body === '') {
+        if (nome_usuario === undefined && email_usuario === undefined && password === undefined) {
             throw new Error('Não foi possível cadastrar o usuário')
         }
-        const newUser = await User.create({ nome_usuario, email_usuario, password, nivel, status })
-        return res.json({ id: newUser.id, nome_usuario, email_usuario, password, nivel, status })
+
+        const newUser = User.build({ nome_usuario, email_usuario, password })
+
+        await newUser.save()
+
+        return res
+            .status(201)
+            .json({ message: 'Usuário cadastrado com sucesso', id: newUser.id, nome: newUser.nome_usuario, email: newUser.email_usuario })
     } catch ({ message }) {
         return res.status(404).json({ error: message })
     }

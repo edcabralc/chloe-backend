@@ -1,6 +1,6 @@
 <template>
     <div class="acomodacoes">
-        <!-- {{ acomodacoes }} -->
+        {{ acomodacoes }}
         <div class="lista" v-for="acomodacao in acomodacoes.list" :key="acomodacao.id">
             <ul>
                 <li>
@@ -16,7 +16,8 @@
 
 <script>
 export default {
-    name: 'TestAcomodacoes',
+    name: 'AcomodacoesContent',
+    props: ['acomodacoes'],
     data() {
         return {}
     },
