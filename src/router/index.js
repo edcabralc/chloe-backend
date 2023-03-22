@@ -10,8 +10,8 @@ import RegisterView from '@/views/Register/RegisterView'
 import FeedbackView from '@/views/Feedback/FeedbackView'
 import MainHeader from '@/components/commons/MainHeader'
 import MainFooter from '@/components/commons/MainFooter'
-import TesteView from '@/views/Teste/TesteView'
-import TestAcomodacoes from '@/views/Dashboard/Acomodacoes/TestAcomodacoes'
+import AcomodacoesContent from '@/views/Dashboard/Contents/Acomodacoes/AcomodacoesContent'
+import UsuariosContent from '@/views/Dashboard/Contents/Usuarios/UsuariosContent'
 
 const routes = [
     {
@@ -87,19 +87,21 @@ const routes = [
     {
         path: '/painel',
         name: 'painel',
+        props: true,
         components: {
             painel: DashboardView,
         },
+
         children: [
             {
                 path: 'usuarios',
-                name: 'usuarios',
-                component: TesteView,
+                name: 'painel-usuarios',
+                component: UsuariosContent,
             },
             {
                 path: 'acomodacoes',
-                name: 'acomodacoes',
-                component: TestAcomodacoes,
+                name: 'painel-acomodacoes',
+                component: AcomodacoesContent,
             },
         ],
     },

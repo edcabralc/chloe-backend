@@ -7,4 +7,5 @@ const http = axios.create({
 export const api = {
     get: (endpoint) => http.get(endpoint),
     post: (endpoint, body) => http.post(endpoint, body),
+    put: (endpoint, body) => http.post(endpoint, body),
 }
