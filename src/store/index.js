@@ -28,7 +28,7 @@ export default createStore({
         },
 
         loadUser: async ({ commit }) => {
-            const response = await http.get('/usuarios')
+            const response = await api.get('/usuarios')
             commit('loadUser', response.data)
         },
     },
