@@ -9,6 +9,7 @@ export default createStore({
             email_usuario: '',
             password: '',
         },
+        feedback: [],
     },
     getters: {
         acomodacoesPadrao(state) {
@@ -24,6 +25,10 @@ export default createStore({
             state.user = user
         },
 
+        loadFeedback(state, feedback) {
+            state.feedback = feedback
+        },
+
         updateUser(state, payload) {
             state.user = Object.assign(state.user, payload)
         },
@@ -37,6 +42,10 @@ export default createStore({
         loadUser: async ({ commit }) => {
             const { data } = await api.post('/usuarios')
             commit('loadUser', data)
+        },
+        loadFeedbacks: async ({ commit }) => {
+            const { data } = await api.post('/feedbacks')
+            commit('loadFeedbacks', data)
         },
         createUser: async (_, payload) => {
             api.post('/usuario/registrar', payload)

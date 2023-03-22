@@ -1,6 +1,7 @@
 import { Model, DataTypes } from 'sequelize'
 import { sequelize } from '../instances/mysql'
 import { Address } from './Address'
+import { Feedback } from './Feedback'
 
 export interface UserInstance extends Model {
     id: number

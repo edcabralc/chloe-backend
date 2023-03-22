@@ -22,4 +22,4 @@ server.use((req: Request, res: Response) => {
     res.json({ error: 'Endpoint não econtrado.' })
 })
 
-server.listen(process.env.PORT)
+server.listen(process.env.PORT_SERVER)

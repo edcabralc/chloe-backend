@@ -6,51 +6,57 @@
                     <img src="@/assets/images/logo.svg" alt="Chloe Gran Hotel" />
                 </router-link>
             </div>
-        </header>
-        <aside class="aside">
-            <div class="aside-profile">
-                <img src="https://picsum.photos/id/839/600/400" alt="" />
-                <div>
-                    <h4>Fulano da Silva</h4>
-                    <p>Administrador</p>
+            <div class="profile-bar">
+                <div class="profile">
+                    <img src="https://picsum.photos/id/839/600/400" alt="" />
+                    <div>
+                        <h4>Fulano da Silva</h4>
+                        <p>Administrador</p>
+                    </div>
                 </div>
-            </div>
-            <div class="aside-menu">
-                <ul class="menu-dashboard">
+                <ul class="logout">
                     <li>
-                        <font-awesome-icon icon="fa-solid fa-house" />
-                        <router-link to="/painel">Inicio</router-link>
-                    </li>
-                    <li>
-                        <font-awesome-icon icon="fa-solid fa-user" />
-                        <router-link to="/painel/usuarios">Usuários</router-link>
-                    </li>
-                    <li>
-                        <font-awesome-icon icon="fa-solid fa-hotel" />
-                        <router-link to="/painel/acomodacoes">Acomodações</router-link>
-                    </li>
-                    <li>
-                        <font-awesome-icon icon="fa-solid fa-address-book" />
-                        <router-link to="/painel/reservas">Reservas</router-link>
-                    </li>
-                    <li>
-                        <font-awesome-icon icon="fa-solid fa-chess-queen" />
-                        <router-link to="/painel/servicos">Serviços</router-link>
-                    </li>
-                    <li>
-                        <font-awesome-icon icon="fa-solid fa-star" />
-                        <router-link to="/painel/avaliacoes">Avaliações</router-link>
+                        <font-awesome-icon icon="fa-solid fa-right-from-bracket" />
+                        <router-link to="/">Sair</router-link>
                     </li>
                 </ul>
             </div>
-        </aside>
-        <div class="aside-footer">
-            <router-link to="/">Sair</router-link>
-        </div>
+        </header>
+
         <main class="container-dashboard">
+            <aside class="aside">
+                <nav class="aside-menu">
+                    <ul class="menu-dashboard">
+                        <li>
+                            <font-awesome-icon icon="fa-solid fa-house" />
+                            <router-link to="/painel/inicio">Inicio</router-link>
+                        </li>
+                        <li>
+                            <font-awesome-icon icon="fa-solid fa-user" />
+                            <router-link to="/painel/usuarios">Usuários</router-link>
+                        </li>
+                        <li>
+                            <font-awesome-icon icon="fa-solid fa-hotel" />
+                            <router-link to="/painel/acomodacoes">Acomodações</router-link>
+                        </li>
+                        <li>
+                            <font-awesome-icon icon="fa-solid fa-address-book" />
+                            <router-link to="/painel/reservas">Reservas</router-link>
+                        </li>
+                        <li>
+                            <font-awesome-icon icon="fa-solid fa-chess-queen" />
+                            <router-link to="/painel/servicos">Serviços</router-link>
+                        </li>
+                        <li>
+                            <font-awesome-icon icon="fa-solid fa-star" />
+                            <router-link to="/painel/avaliacoes">Avaliações</router-link>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
             <section>
                 <h1>Olá aqui tem: {{ slug }}</h1>
-                <div class="conteudo">
+                <div class="content">
                     <router-view></router-view>
                 </div>
             </section>
