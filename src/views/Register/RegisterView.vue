@@ -1,9 +1,7 @@
 <template>
     <!-- <MainHeader /> -->
     <main>
-        <div class="register-main cover-background">
-            <h1 class="hero-title">Registro de Novo Usuário</h1>
-        </div>
+        <HeroBanner class="img-bg" title="Registro de novo usuário"></HeroBanner>
 
         <h2 class="title">Bem-vindo ao melhor hotel da cidade</h2>
 
@@ -17,11 +15,11 @@
                                 <input type="text" name="nome_usuario" v-model="nome_usuario" />
                             </div>
                             <div class="cells">
-                                <label for="email_usuario">E-Mail:</label>
+                                <label for="email_usuario">Email:</label>
                                 <input type="email" name="email_usuario" v-model="email_usuario" />
                             </div>
                             <div class="cells">
-                                <label for="password">Senha</label>
+                                <label for="password">Senha:</label>
                                 <input type="password" name="password" v-model="password" />
                             </div>
                             <input class="btn" type="submit" value="Enviar" @click.prevent="register()" />
@@ -35,44 +33,45 @@
 </template>
 
 <script>
+import HeroBanner from '@/components/commons/HeroBanner.vue'
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    name: 'RegisterView',
+    name: "RegisterView",
     computed: {
         // ...mapState(['user']),
         nome_usuario: {
             get() {
-                return this.$store.state.user.nome_usuario
+                return this.$store.state.user.nome_usuario;
             },
             set(value) {
-                this.$store.commit('updateUser', { nome_usuario: value })
+                this.$store.commit("updateUser", { nome_usuario: value });
             },
         },
         email_usuario: {
             get() {
-                return this.$store.state.user.email_usuario
+                return this.$store.state.user.email_usuario;
             },
             set(value) {
-                this.$store.commit('updateUser', { email_usuario: value })
+                this.$store.commit("updateUser", { email_usuario: value });
             },
         },
         password: {
             get() {
-                return this.$store.state.user.password
+                return this.$store.state.user.password;
             },
             set(value) {
-                this.$store.commit('updateUser', { password: value })
+                this.$store.commit("updateUser", { password: value });
             },
         },
     },
     methods: {
         // ...mapActions(['register']),
-
         register() {
-            this.$store.dispatch('createUser', this.$store.state.user)
+            this.$store.dispatch("createUser", this.$store.state.user);
         },
     },
+    components: { HeroBanner }
 }
 </script>
 
