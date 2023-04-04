@@ -1,9 +1,12 @@
-@use "@/assets/scss/index" as *;
+@use '@/assets/scss/index' as *;
 
 /* tela de login */
+.img-bg {
+    background: url("@/assets/images/bell.png");
+}
 
 .sign-in {
-    width: 100vw;
+    // width: 100vw;
     height: 100vh;
     height: auto;
     display: flex;
@@ -12,17 +15,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 60%;
+        margin: 0 auto;
     }
-    &-cover {
-        flex: 1;
-        background: url("@/assets/images/background-login.jpg") no-repeat;
-        background-size: auto 100%;
-        background-position: center;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-    }
+    
     &-forms {
         display: flex;
         flex-direction: column;
@@ -87,7 +83,7 @@
 }
 
 .sign-in-help:before {
-    content: "";
+    content: '';
     display: block;
     width: 250px;
     height: 3px;
