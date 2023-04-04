@@ -45,16 +45,20 @@ export default {
             get() {
                 return this.$store.state.user.nome_usuario
             },
+            userTrim: this.removeQuotesSpaces(this.user.nome_usuario),
+
             set(value) {
-                this.$store.commit('updateUser', { nome_usuario: value })
+                this.$store.commit('updateUser', { userTrim: value })
             },
         },
         email_usuario: {
             get() {
                 return this.$store.state.user.email_usuario
             },
+            mailTrim: this.removeQuotesSpaces(this.user.email_usuario),
+
             set(value) {
-                this.$store.commit('updateUser', { email_usuario: value })
+                this.$store.commit('updateUser', { mailTrim: value })
             },
         },
         password: {
@@ -68,6 +72,9 @@ export default {
     },
     methods: {
         // ...mapActions(['register']),
+        removeQuotesSpaces(str) {
+            return str.replaceAll("'", '').replaceAll('"', '').trim()
+        },
 
         register() {
             this.$store.dispatch('createUser', this.$store.state.user)
