@@ -1,9 +1,7 @@
 <template>
     <!-- <MainHeader /> -->
     <main>
-        <div class="register-main cover-background">
-            <h1 class="hero-title">Registro de Novo Usuário</h1>
-        </div>
+        <HeroBanner class="img-bg" title="Registro de novo usuário"></HeroBanner>
 
         <h2 class="title">Bem-vindo ao melhor hotel da cidade</h2>
 
@@ -17,11 +15,11 @@
                                 <input type="text" name="nome_usuario" v-model="nome_usuario" />
                             </div>
                             <div class="cells">
-                                <label for="email_usuario">E-Mail:</label>
+                                <label for="email_usuario">Email:</label>
                                 <input type="email" name="email_usuario" v-model="email_usuario" />
                             </div>
                             <div class="cells">
-                                <label for="password">Senha</label>
+                                <label for="password">Senha:</label>
                                 <input type="password" name="password" v-model="password" />
                             </div>
                             <input class="btn" type="submit" value="Enviar" @click.prevent="register()" />
@@ -35,6 +33,7 @@
 </template>
 
 <script>
+import HeroBanner from '@/components/commons/HeroBanner.vue'
 import { mapState, mapActions } from 'vuex'
 
 export default {
@@ -45,20 +44,18 @@ export default {
             get() {
                 return this.$store.state.user.nome_usuario
             },
-            userTrim: this.removeQuotesSpaces(this.user.nome_usuario),
 
-            set(value) {
-                this.$store.commit('updateUser', { userTrim: value })
+            set(userTrim) {
+                this.$store.commit('updateUser', { nome_usuario: userTrim })
             },
         },
         email_usuario: {
             get() {
                 return this.$store.state.user.email_usuario
             },
-            mailTrim: this.removeQuotesSpaces(this.user.email_usuario),
 
-            set(value) {
-                this.$store.commit('updateUser', { mailTrim: value })
+            set(mailTrim) {
+                this.$store.commit('updateUser', { email_usuario: mailTrim })
             },
         },
         password: {
@@ -77,9 +74,12 @@ export default {
         },
 
         register() {
+            const userTrim = this.removeQuotesSpaces(this.nome_usuario)
+            const mailTrim = this.removeQuotesSpaces(this.email_usuario)
             this.$store.dispatch('createUser', this.$store.state.user)
         },
     },
+    components: { HeroBanner },
 }
 </script>
 
