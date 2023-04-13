@@ -1,16 +1,16 @@
 <template>
-  <ListRoom />
+    <ListRoom />
 </template>
 
 <script>
-import ListRoom from "@/components/ListRoom";
+import ListRoom from '@/components/ListRoom'
 
 export default {
-  name: "RoomView",
-  components: {
-    ListRoom,
-  },
-};
+    name: 'RoomView',
+    components: {
+        ListRoom,
+    },
+}
 </script>
 
 <style src="./style.scss" lang="scss" />

@@ -6,10 +6,9 @@
                     <img src="@/assets/images/logo.svg" alt="Chloe Gran Hotel" />
                 </router-link>
             </div>
-            <div class="navMain">
-                <MainNavbar />
-            </div>
+            <MainNavbar />
         </div>
+
         <div class="navHamb">
             <NavMobile />
         </div>

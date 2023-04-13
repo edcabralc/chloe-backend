@@ -1,5 +1,9 @@
 @use '@/assets/scss/index' as *;
 
+section {
+    width: 100%;
+}
+
 .main {
     display: flex;
     flex-direction: column;

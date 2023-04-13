@@ -37,41 +37,42 @@ import HeroBanner from '@/components/commons/HeroBanner.vue'
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    name: "RegisterView",
+    name: 'RegisterView',
     computed: {
         // ...mapState(['user']),
         nome_usuario: {
             get() {
-                return this.$store.state.user.nome_usuario;
+                return this.$store.state.user.nome_usuario
             },
             set(value) {
-                this.$store.commit("updateUser", { nome_usuario: value });
+                this.$store.commit('updateUser', { nome_usuario: value })
             },
         },
         email_usuario: {
             get() {
-                return this.$store.state.user.email_usuario;
+                return this.$store.state.user.email_usuario
             },
             set(value) {
-                this.$store.commit("updateUser", { email_usuario: value });
+                this.$store.commit('updateUser', { email_usuario: value })
             },
         },
         password: {
             get() {
-                return this.$store.state.user.password;
+                return this.$store.state.user.password
             },
             set(value) {
-                this.$store.commit("updateUser", { password: value });
+                this.$store.commit('updateUser', { password: value })
             },
         },
     },
     methods: {
         // ...mapActions(['register']),
         register() {
-            this.$store.dispatch("createUser", this.$store.state.user);
+            this.$store.dispatch('createUser', this.$store.state.user)
+            console.log(this.$store.state.user)
         },
     },
-    components: { HeroBanner }
+    components: { HeroBanner },
 }
 </script>
 

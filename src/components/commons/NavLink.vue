@@ -22,4 +22,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+@use '@/assets/scss/index' as *;
+
+a {
+    text-decoration: none;
+    color: $titles-gray;
+    padding: 28px 0;
+}
+</style>
