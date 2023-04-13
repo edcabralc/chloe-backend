@@ -13,8 +13,8 @@ router.get('/ping', (req, res) => {
 })
 
 router.post('/usuarios', UserController.getAll)
+router.post('/usuario', UserController.createUser)
 router.post('/usuario/:id', UserController.getById)
-router.post('/usuario/registrar', UserController.createUser)
 router.put('/usuario/:id', UserController.editById)
 router.delete('/usuario/:id', UserController.deleteById)
 

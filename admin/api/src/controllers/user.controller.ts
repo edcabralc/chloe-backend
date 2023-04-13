@@ -44,7 +44,8 @@ export const getById = async (req: Request, res: Response) => {
 export const createUser = async (req: Request, res: Response) => {
     const { nome_usuario, email_usuario, password } = req.body
     try {
-        if (nome_usuario === undefined && email_usuario === undefined && password === undefined) {
+        if (nome_usuario === '' && email_usuario === '' && password === '') {
+            res.status(400)
             throw new Error('Não foi possível cadastrar o usuário')
         }
 
@@ -56,7 +57,7 @@ export const createUser = async (req: Request, res: Response) => {
             .status(201)
             .json({ message: 'Usuário cadastrado com sucesso', id: newUser.id, nome: newUser.nome_usuario, email: newUser.email_usuario })
     } catch ({ message }) {
-        return res.status(404).json({ error: message })
+        return res.status(400).json({ error: message })
     }
 }
 

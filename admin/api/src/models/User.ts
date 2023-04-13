@@ -10,6 +10,7 @@ export interface UserInstance extends Model {
     password: string
     nivel: string
     status: string
+    imagem: string
 }
 
 export const User = sequelize.define<UserInstance>(
@@ -21,6 +22,7 @@ export const User = sequelize.define<UserInstance>(
         password: { defaultValue: false, type: DataTypes.STRING },
         nivel: { defaultValue: 'padrao', type: DataTypes.STRING },
         status: { defaultValue: 'ativo', type: DataTypes.STRING },
+        imagem: { defaultValue: false, type: DataTypes.STRING },
     },
     {
         tableName: 'usuario',
