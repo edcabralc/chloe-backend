@@ -48,7 +48,7 @@ export default createStore({
             commit('loadFeedbacks', data)
         },
         createUser: async (_, payload) => {
-            api.post('/usuario/registrar', payload)
+            api.post('/usuario', payload)
         },
     },
     modules: {},

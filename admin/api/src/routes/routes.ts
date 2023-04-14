@@ -8,13 +8,9 @@ import * as FeedbackController from '../controllers/feedback.controller'
 
 const router = Router()
 
-router.get('/ping', (req, res) => {
-    res.json({ pong: true })
-})
-
 router.post('/usuarios', UserController.getAll)
+router.post('/usuario', UserController.createUser)
 router.post('/usuario/:id', UserController.getById)
-router.post('/usuario/registrar', UserController.createUser)
 router.put('/usuario/:id', UserController.editById)
 router.delete('/usuario/:id', UserController.deleteById)
 

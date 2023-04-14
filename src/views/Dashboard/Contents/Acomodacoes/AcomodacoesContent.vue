@@ -1,16 +1,33 @@
 <template>
     <div class="acomodacoes">
-        {{ acomodacoes }}
-        <div class="lista" v-for="acomodacao in acomodacoes.list" :key="acomodacao.id">
-            <ul>
-                <li>
-                    <h3>{{ acomodacao.nome }}</h3>
-                </li>
-                <li>{{ acomodacao.descricao }}</li>
-                <li>R$ {{ acomodacao.preco }}</li>
-                <li>{{ acomodacao.status }}</li>
-            </ul>
-        </div>
+        <table class="table table-hover overflow-hidden">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" colspan="3">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="acomodacao in acomodacoes.list" :key="acomodacao.id">
+                    <th>{{ acomodacao.id }}</th>
+                    <td>{{ acomodacao.nome }}</td>
+                    <td>{{ acomodacao.descricao }}</td>
+                    <td>R$ {{ acomodacao.preco }}</td>
+                    <td>
+                        <span class="badge rounded-pill text-bg-primary p-2">{{ acomodacao.status }} </span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-success btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Remover</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 

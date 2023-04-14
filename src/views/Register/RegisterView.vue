@@ -38,10 +38,12 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
     name: 'RegisterView',
+    name: 'RegisterView',
     computed: {
         // ...mapState(['user']),
         nome_usuario: {
             get() {
+                return this.$store.state.user.nome_usuario
                 return this.$store.state.user.nome_usuario
             },
 
@@ -52,6 +54,7 @@ export default {
         email_usuario: {
             get() {
                 return this.$store.state.user.email_usuario
+                return this.$store.state.user.email_usuario
             },
 
             set(mailTrim) {
@@ -61,8 +64,10 @@ export default {
         password: {
             get() {
                 return this.$store.state.user.password
+                return this.$store.state.user.password
             },
             set(value) {
+                this.$store.commit('updateUser', { password: value })
                 this.$store.commit('updateUser', { password: value })
             },
         },
@@ -79,6 +84,7 @@ export default {
             this.$store.dispatch('createUser', this.$store.state.user)
         },
     },
+    components: { HeroBanner },
     components: { HeroBanner },
 }
 </script>

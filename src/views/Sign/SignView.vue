@@ -24,25 +24,23 @@
                     </div>
                 </div>
             </div>
-            <!-- </div>
-      </div> -->
         </section>
     </main>
     <MainFooter></MainFooter>
 </template>
 
 <script>
-import HeroBanner from '@/components/commons/HeroBanner.vue';
+import HeroBanner from '@/components/commons/HeroBanner.vue'
 import MainFooter from '@/components/commons/MainFooter.vue'
 import MainHeader from '@/components/commons/MainHeader.vue'
 
 export default {
     name: 'SignView',
     components: {
-    MainHeader,
-    MainFooter,
-    HeroBanner
-},
+        MainHeader,
+        MainFooter,
+        HeroBanner,
+    },
     methods: {
         validarFormulario() {},
     },
