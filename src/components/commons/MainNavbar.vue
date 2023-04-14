@@ -8,6 +8,9 @@
             <li>
                 <router-link to="/acessar" class="btn-menu btn-menu_login">Acessar</router-link>
             </li>
+            <li>
+                <router-link to="/acessar-admin" class="btn-menu btn-menu_login btn-admin">Acesso Admin</router-link>
+            </li>
         </ul>
     </nav>
 </template>
@@ -58,7 +61,7 @@ export default {
 }
 
 .btn-menu {
-    width: 140px;
+    width: 170px;
     height: auto;
     border-radius: 9px;
     border: none;
@@ -85,5 +88,9 @@ export default {
             cursor: pointer;
         }
     }
+}
+
+.btn-menu_login:hover {
+    opacity: .5;
 }
 </style>

@@ -5,6 +5,7 @@ import RoomsView from '@/views/Rooms/RoomsView'
 import BookView from '@/views/Book/BookView'
 import ContactView from '@/views/Contact/ContactView'
 import SignView from '@/views/Sign/SignView'
+import SignAdminView from '@/views/SignAdmin/SignAdminView'
 import DashboardView from '@/views/Dashboard/DashboardView'
 import RegisterView from '@/views/Register/RegisterView'
 import FeedbackView from '@/views/Feedback/FeedbackView'
@@ -74,6 +75,13 @@ const routes = [
         name: 'acessar',
         components: {
             login: SignView,
+        },
+    },
+    {
+        path: '/acessar-admin',
+        name: 'acessar-admin',
+        components: {
+            login: SignAdminView,
         },
     },
     {

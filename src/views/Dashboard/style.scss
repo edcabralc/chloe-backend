@@ -82,8 +82,9 @@ section {
     width: 100%;
 }
 
-.menu-dashboard li a {
+.menu-dashboard li:hover a {
     width: 100%;
+    color: white;
 }
 
 .menu-dashboard li:hover {

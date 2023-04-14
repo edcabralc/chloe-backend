@@ -22,7 +22,7 @@
                                 <label for="password">Senha:</label>
                                 <input type="password" name="password" v-model="password" />
                             </div>
-                            <input class="btn" type="submit" value="Enviar" @click.prevent="register()" />
+                            <input class="btn-default" type="submit" value="Enviar" @click.prevent="register()" />
                         </div>
                     </form>
                 </article>
