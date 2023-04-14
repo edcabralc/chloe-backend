@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { Address } from '../models/Address'
 import { User } from '../models/User'
+import bcrypt from 'bcrypt'
 
 export const getAll = async (req: Request, res: Response) => {
     try {
@@ -49,7 +50,8 @@ export const createUser = async (req: Request, res: Response) => {
             throw new Error('Não foi possível cadastrar o usuário')
         }
 
-        const newUser = User.build({ nome_usuario, email_usuario, password })
+        const hashedPassword = await bcrypt.hash(password, 10)
+        const newUser = User.build({ nome_usuario, email_usuario, password: hashedPassword })
 
         await newUser.save()
 

@@ -51,11 +51,14 @@ export default {
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 992px) {
     .navHamb {
         display: flex;
     }
-    .navMain {
+    .menu {
+        display: none;
+    }
+    .navbar {
         display: none;
     }
 }

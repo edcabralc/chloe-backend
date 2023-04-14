@@ -17,10 +17,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <!-- <a class="navbar-brand" href="#"> Cloe </a> -->
-                <router-link to="/">
-                    <img src="@/assets/images/logo.svg" alt="Chloe Gran Hotel" />
-                </router-link>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <NavLink />
                     <li>
@@ -63,7 +59,7 @@ export default {
 }
 
 .menu-mobile {
-    // display: none;
+    display: none;
     position: absolute;
     top: 120px;
     right: 0px;
