@@ -1,5 +1,4 @@
 <template>
-    <!-- <MainHeader /> -->
     <main>
         <HeroBanner class="img-bg" title="Registro de novo usuário"></HeroBanner>
 
@@ -22,38 +21,37 @@
                                 <label for="password">Senha:</label>
                                 <input type="password" name="password" v-model="password" />
                             </div>
-                            <input class="btn" type="submit" value="Enviar" @click.prevent="register()" />
+                            <input class="btn-default" type="submit" value="Enviar" @click.prevent="register()" />
                         </div>
                     </form>
                 </article>
             </div>
         </section>
     </main>
-    <!-- <MainFooter /> -->
 </template>
 
 <script>
 import HeroBanner from '@/components/commons/HeroBanner.vue'
-import { mapState, mapActions } from 'vuex'
 
 export default {
     name: 'RegisterView',
     computed: {
-        // ...mapState(['user']),
         nome_usuario: {
             get() {
                 return this.$store.state.user.nome_usuario
             },
+
             set(value) {
-                this.$store.commit('updateUser', { nome_usuario: value })
+                this.$store.commit('updateUser', { nome_usuario: this.removeQuotesSpaces(value) })
             },
         },
         email_usuario: {
             get() {
                 return this.$store.state.user.email_usuario
             },
+
             set(value) {
-                this.$store.commit('updateUser', { email_usuario: value })
+                this.$store.commit('updateUser', { email_usuario: this.removeQuotesSpaces(value) })
             },
         },
         password: {
@@ -61,15 +59,17 @@ export default {
                 return this.$store.state.user.password
             },
             set(value) {
-                this.$store.commit('updateUser', { password: value })
+                this.$store.commit('updateUser', { password: this.removeQuotesSpaces(value) })
             },
         },
     },
     methods: {
-        // ...mapActions(['register']),
+        removeQuotesSpaces(str) {
+            return str.replaceAll("'", '').replaceAll('"', '').trim()
+        },
+
         register() {
             this.$store.dispatch('createUser', this.$store.state.user)
-            console.log(this.$store.state.user)
         },
     },
     components: { HeroBanner },
