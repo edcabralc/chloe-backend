@@ -11,15 +11,15 @@
                         <div class="itens-form">
                             <div class="cells">
                                 <label for="nome_usuario">Nome Completo:</label>
-                                <input type="text" name="nome_usuario" v-model="nome_usuario" />
+                                <input type="text" name="nome_usuario" v-model="user.nome_usuario" />
                             </div>
                             <div class="cells">
                                 <label for="email_usuario">Email:</label>
-                                <input type="email" name="email_usuario" v-model="email_usuario" />
+                                <input type="email" name="email_usuario" v-model="user.email_usuario" />
                             </div>
                             <div class="cells">
                                 <label for="password">Senha:</label>
-                                <input type="password" name="password" v-model="password" />
+                                <input type="password" name="password" v-model="user.password" />
                             </div>
                             <input class="btn-default" type="submit" value="Enviar" @click.prevent="register()" />
                         </div>
@@ -35,42 +35,37 @@ import HeroBanner from '@/components/commons/HeroBanner.vue'
 
 export default {
     name: 'RegisterView',
-    computed: {
-        nome_usuario: {
-            get() {
-                return this.$store.state.user.nome_usuario
-            },
 
-            set(value) {
-                this.$store.commit('updateUser', { nome_usuario: this.removeQuotesSpaces(value) })
+    data() {
+        return {
+            user: {
+                nome_usuario: '',
+                email_usuario: '',
+                password: '',
             },
-        },
-        email_usuario: {
-            get() {
-                return this.$store.state.user.email_usuario
-            },
+        }
 
-            set(value) {
-                this.$store.commit('updateUser', { email_usuario: this.removeQuotesSpaces(value) })
-            },
-        },
-        password: {
-            get() {
-                return this.$store.state.user.password
-            },
-            set(value) {
-                this.$store.commit('updateUser', { password: this.removeQuotesSpaces(value) })
-            },
-        },
-    },
     methods: {
+
+
+        injTreatment(str) {
+            return str.replace(/[''"]/g, '')
+        },
+        register() {
+            this.$store.dispatch('createUser', this.user)
+
         removeQuotesSpaces(str) {
             return str.replaceAll("'", '').replaceAll('"', '').trim()
         },
 
         register() {
             this.$store.dispatch('createUser', this.$store.state.user)
+
         },
+    },
+    updated() {
+        this.user.nome_usuario = this.injTreatment(this.user.nome_usuario)
+        this.user.email_usuario = this.injTreatment(this.user.email_usuario)
     },
     components: { HeroBanner },
 }
