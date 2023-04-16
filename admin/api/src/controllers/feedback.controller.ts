@@ -1,11 +1,10 @@
 import { Request, Response } from 'express'
 import { Address } from '../models/Address'
-import { User } from '../models/User'
-import bcrypt from 'bcrypt'
+import { Feedback } from '../models/Feedback'
 
 export const getAll = async (req: Request, res: Response) => {
     try {
-        const list = await User.findAll({
+        const list = await Feedback.findAll({
             include: [
                 {
                     model: Address,
@@ -24,7 +23,7 @@ export const getAll = async (req: Request, res: Response) => {
 export const getById = async (req: Request, res: Response) => {
     const { id } = req.params
     try {
-        const list = await User.findOne({
+        const list = await Feedback.findOne({
             where: { id },
             include: [
                 {
@@ -42,24 +41,20 @@ export const getById = async (req: Request, res: Response) => {
     }
 }
 
-export const createUser = async (req: Request, res: Response) => {
+export const createFeedback = async (req: Request, res: Response) => {
     const { nome_usuario, email_usuario, password } = req.body
     try {
-        if (nome_usuario === '' && email_usuario === '' && password === '') {
-            res.status(400)
+        if (nome_usuario === undefined && email_usuario === undefined && password === undefined) {
             throw new Error('Não foi possível cadastrar o usuário')
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10)
-        const newUser = User.build({ nome_usuario, email_usuario, password: hashedPassword })
+        const newFeedback = Feedback.build({ nome_usuario, email_usuario, password })
 
-        await newUser.save()
+        await newFeedback.save()
 
-        return res
-            .status(201)
-            .json({ message: 'Usuário cadastrado com sucesso', id: newUser.id, nome: newUser.nome_usuario, email: newUser.email_usuario })
+        return res.status(201).json({ message: 'Usuário cadastrado com sucesso' })
     } catch ({ message }) {
-        return res.status(400).json({ error: message })
+        return res.status(404).json({ error: message })
     }
 }
 
@@ -68,16 +63,16 @@ export const editById = async (req: Request, res: Response) => {
     const { name, email, password, nivel, status } = req.body
 
     try {
-        const list = await User.findByPk(id)
+        const list = await Feedback.findByPk(id)
         if (!list) {
             throw new Error('Usuário não encontrado')
         }
 
-        list.nome_usuario = name
-        list.email_usuario = email
-        list.password = password
-        list.nivel = nivel
-        list.status = status
+        // list.nome_usuario = name
+        // list.email_usuario = email
+        // list.password = password
+        // list.nivel = nivel
+        // list.status = status
         await list.save()
 
         return res.json({ message: list })
@@ -89,7 +84,7 @@ export const editById = async (req: Request, res: Response) => {
 export const deleteById = async (req: Request, res: Response) => {
     const { id } = req.params
     try {
-        const list = await User.destroy({ where: { id } })
+        const list = await Feedback.destroy({ where: { id } })
         if (!list) {
             throw new Error('Usuário não encontrado')
         }

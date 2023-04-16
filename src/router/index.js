@@ -12,6 +12,7 @@ import MainHeader from '@/components/commons/MainHeader'
 import MainFooter from '@/components/commons/MainFooter'
 import AcomodacoesContent from '@/views/Dashboard/Contents/Acomodacoes/AcomodacoesContent'
 import UsuariosContent from '@/views/Dashboard/Contents/Usuarios/UsuariosContent'
+import HomeContent from '@/views/Dashboard/Contents/Home/HomeContent'
 
 const routes = [
     {
@@ -93,6 +94,11 @@ const routes = [
         },
 
         children: [
+            {
+                path: 'inicio',
+                name: 'painel-inicio',
+                component: HomeContent,
+            },
             {
                 path: 'usuarios',
                 name: 'painel-usuarios',

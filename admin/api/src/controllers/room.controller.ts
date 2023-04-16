@@ -25,6 +25,24 @@ export const getById = async (req: Request, res: Response) => {
         res.status(404).json({ error: message })
     }
 }
+
+export const createRoom = async (req: Request, res: Response) => {
+    const { nome_usuario, email_usuario, password } = req.body
+    try {
+        if (nome_usuario === undefined && email_usuario === undefined && password === undefined) {
+            throw new Error('Não foi possível cadastrar o usuário')
+        }
+
+        const newUser = Room.build({ nome_usuario, email_usuario, password })
+
+        await newUser.save()
+
+        return res.status(201).json({ message: 'Usuário cadastrado com sucesso' })
+    } catch ({ message }) {
+        return res.status(404).json({ error: message })
+    }
+}
+
 export const editById = async (req: Request, res: Response) => {
     const { id } = req.params
     const { tipo, status, descricao, preco, imagem } = req.body

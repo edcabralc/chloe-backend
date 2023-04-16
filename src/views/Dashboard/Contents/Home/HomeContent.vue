@@ -1,29 +1,32 @@
 <template>
     <div class="acomodacoes">
-        <table class="table table-hover overflow-hidden">
-            <thead class="table-light">
+        <!-- {{ usuarios }} -->
+        <div class="lista" v-for="usuario in usuarios.list" :key="usuario.id">
+            <ul>
+                <li>
+                    <h3>{{ usuario.nome_usuario }}</h3>
+                </li>
+                <li>{{ usuario.email_usuario }}</li>
+                <li>{{ usuario.nivel }}</li>
+                <li>{{ usuario.status }}</li>
+            </ul>
+        </div>
+        <table class="" style="width: 100%">
+            <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
                     <th scope="col">Status</th>
-                    <th scope="col" colspan="2">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="usuario in usuarios.list" :key="usuario.id">
+                <tr style="text-align: center" v-for="usuario in usuarios.list" :key="usuario.id">
                     <th>{{ usuario.id }}</th>
                     <td>{{ usuario.nome_usuario }}</td>
                     <td>{{ usuario.email_usuario }}</td>
-                    <td>
-                        <span class="badge rounded-pill text-bg-primary p-2">{{ usuario.status }} </span>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-outline-success btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-outline-danger btn-sm">Remover</button>
-                    </td>
+                    <td>{{ usuario.status }}</td>
+                    <td>{{ usuario.nivel }}</td>
                 </tr>
             </tbody>
         </table>

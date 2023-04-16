@@ -24,61 +24,6 @@
     color: #686b68;
 }
 
-// .container-tipo-acomodacao {
-//     flex: 2;
-// }
-
-// .container-titulos-acomodacao img {
-//     flex: 1 0 30%;
-//     width: 30%;
-//     border-radius: 10px;
-// }
-
-// .item-check {
-//     display: none;
-//     padding: 5rem 0;
-// }
-
-// .item-label {
-//     display: flex;
-//     flex: 1;
-//     border: 1px solid #016956;
-//     border-radius: 10px;
-//     padding: 1rem;
-//     background: #fff;
-//     margin: 1rem 0;
-//     gap: 1rem;
-// }
-
-// .circle {
-//     width: 15px;
-//     height: 15px;
-//     border-radius: 50%;
-//     border: 1px solid #016956;
-//     padding: 0.6rem;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     position: relative;
-// }
-
-// .item-label img {
-//     object-fit: cover;
-// }
-
-// .item-check:checked ~ label div {
-//     background-color: #eff5f0;
-//     color: #016956;
-// }
-
-// .item-check:checked ~ label .circle .checkmark {
-//     position: absolute;
-//     width: 11px;
-//     height: 11px;
-//     border-radius: 50%;
-//     background-color: #016956;
-// }
-
 .flex {
     display: flex;
     gap: 1rem;
@@ -99,28 +44,28 @@
 }
 
 .container-resumo-reserva .btn {
-  width: 288px;
-  height: auto;
-  border-radius: 9px;
-  border: none;
-  box-shadow: none;
-  font-size: 20px;
-  padding: 12px 22px;
-  color: #fff;
-  background-color: #558e60;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  cursor: pointer;
-  text-align: center;
-  margin: auto;
-  margin-top: 1rem;
+    width: 288px;
+    height: auto;
+    border-radius: 9px;
+    border: none;
+    box-shadow: none;
+    font-size: 20px;
+    padding: 12px 22px;
+    color: #fff;
+    background-color: #558e60;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
 }
 
 .container-resumo-reserva .btn:hover {
     background-color: #558e60;
-  color: #fff;
-  opacity: 0.5;
-  transition: ease 0.2s;
-  cursor: pointer;
+    color: #fff;
+    opacity: 0.5;
+    transition: ease 0.2s;
+    cursor: pointer;
 }
 
 .container-resumo-reserva .container-listas {
@@ -144,7 +89,7 @@
 
 .container-listas .gerarDesconto:hover {
     cursor: pointer;
-    opacity: .5;
+    opacity: 0.5;
     transition: ease 0.2s;
 }
 

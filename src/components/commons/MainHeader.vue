@@ -6,10 +6,9 @@
                     <img src="@/assets/images/logo.svg" alt="Chloe Gran Hotel" />
                 </router-link>
             </div>
-            <div class="navMain">
-                <MainNavbar />
-            </div>
+            <MainNavbar />
         </div>
+
         <div class="navHamb">
             <NavMobile />
         </div>
@@ -52,11 +51,14 @@ export default {
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 992px) {
     .navHamb {
         display: flex;
     }
-    .navMain {
+    .menu {
+        display: none;
+    }
+    .navbar {
         display: none;
     }
 }
