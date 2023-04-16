@@ -1,10 +1,20 @@
 import { Response, Request } from 'express'
+import sharp from 'sharp'
+import { unlink } from 'fs/promises'
+import path from 'path'
 
-export const sendFile = (req: Request, res: Response) => {
-    const file = req.file
-    // console.log(req.file)
-    console.log('Esse é o nome do arquivo?', file?.filename)
-    return res.json({ message: 'Uploado realizado com sucesso' })
+export const sendFile = async (req: Request, res: Response) => {
+    if (req.file) {
+        const filename = `${req.file.filename}`
+
+        await sharp(req.file.path)
+            .resize(300, 300)
+            .toFormat('jpeg')
+            .toFile(path.join(__dirname, `../../public/media/${filename}`))
+
+        await unlink(req.file.path)
+    }
+    return res.json({ message: 'Upload realizado com sucesso' })
 }
 
 export const sendFiles = (req: Request, res: Response) => {}
