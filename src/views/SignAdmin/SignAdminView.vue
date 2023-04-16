@@ -1,7 +1,7 @@
 <template>
     <mainHeader></mainHeader>
     <main>
-        <HeroBanner class="img-bg" title="Acessar conta"></HeroBanner>
+        <HeroBanner class="img-bg" title="Acesso administrativo"></HeroBanner>
         <section class="sign-in">
             <div class="sign-in-container">
                 <div class="sign-in-cover"></div>
@@ -12,7 +12,7 @@
                         </router-link>
                     </div>
                     <form method="get" id="myForm">
-                        <label for="nome">Email:</label>
+                        <label for="nome">Email de administrador:</label>
                         <input class="input-text-primary" type="email" name="login" id="login" required />
                         <label for="senha">Senha:</label>
                         <input class="input-text-primary" type="password" name="senha" id="senha" required />
@@ -36,7 +36,7 @@ import MainHeader from '@/components/commons/MainHeader.vue'
 import LinkButton from '@/components/commons/LinkButton.vue'
 
 export default {
-    name: 'SignView',
+    name: 'SignAdminView',
     components: {
         MainHeader,
         MainFooter,
