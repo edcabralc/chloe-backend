@@ -19,11 +19,14 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <NavLink />
-                    <li>
+                    <li class="mb-1">
                         <router-link to="/cadastrar" class="btn-default btn_signin"> Cadastrar </router-link>
                     </li>
-                    <li>
+                    <li class="mb-1">
                         <router-link to="/acessar" class="btn-default btn_login"> Acessar </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/acessar-admin" class="btn-default btn_login"> Acesso Admin </router-link>
                     </li>
                 </ul>
             </div>
@@ -56,6 +59,7 @@ export default {
 
 .mobile-nav {
     display: flex;
+    text-align: center;
 }
 
 .menu-mobile {
