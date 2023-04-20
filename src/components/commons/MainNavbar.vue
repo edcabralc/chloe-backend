@@ -1,5 +1,6 @@
 <template>
-    <nav class="navbar">
+    <nav-mobile @showMenuMobile="showMenu()"></nav-mobile>
+    <nav class="navbar" :class="this.isActive ? 'open-menu' : 'closed-menu'">
         <ul class="menu">
             <NavLink />
             <li>
@@ -8,19 +9,32 @@
             <li>
                 <router-link to="/acessar" class="btn-menu btn-menu_login">Acessar</router-link>
             </li>
-            <li>
+            <!-- <li>
                 <router-link to="/acessar-admin" class="btn-menu btn-menu_login btn-admin">Acesso Admin</router-link>
-            </li>
+            </li> -->
         </ul>
     </nav>
 </template>
 
 <script>
 import NavLink from './NavLink.vue'
+import NavMobile from '@/components/commons/NavMobile.vue'
 
 export default {
     name: 'MainNavbar',
-    components: { NavLink },
+    components: { NavLink, NavMobile },
+
+    data() {
+        return {
+            isActive: false,
+        }
+    },
+    methods: {
+        showMenu() {
+            this.isActive = !this.isActive
+            console.log(this.isActive)
+        },
+    },
 }
 </script>
 
@@ -29,10 +43,14 @@ export default {
 
 .navbar {
     font-size: 20px;
+    display: flex;
 }
 
 .menu {
     display: flex;
+}
+
+.menu {
     justify-content: space-between;
     align-items: center;
     gap: 36px;
@@ -91,6 +109,27 @@ export default {
 }
 
 .btn-menu_login:hover {
-    opacity: .5;
+    opacity: 0.5;
+}
+
+.btn-mobile {
+    display: none;
+}
+
+.open-menu {
+    display: block;
+}
+.closed-menu {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .btn-mobile {
+        display: block;
+    }
+
+    // .navbar {
+    //     display: none;
+    // }
 }
 </style>

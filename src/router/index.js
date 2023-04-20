@@ -111,6 +111,7 @@ const routes = [
                 path: 'usuarios',
                 name: 'painel-usuarios',
                 component: UsuariosContent,
+                children: [{ path: '/usuario/:id', name: 'usuario', component: UsuariosContent }],
             },
             {
                 path: 'acomodacoes',
