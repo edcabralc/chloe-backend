@@ -1,6 +1,5 @@
 <template>
-    <nav-mobile @showMenuMobile="showMenu()"></nav-mobile>
-    <nav class="navbar" :class="this.isActive ? 'open-menu' : 'closed-menu'">
+    <nav class="navbar">
         <ul class="menu">
             <NavLink />
             <li>
@@ -14,6 +13,9 @@
             </li> -->
         </ul>
     </nav>
+    <div class="nav-mobile">
+        <nav-mobile></nav-mobile>
+    </div>
 </template>
 
 <script>
@@ -23,18 +25,6 @@ import NavMobile from '@/components/commons/NavMobile.vue'
 export default {
     name: 'MainNavbar',
     components: { NavLink, NavMobile },
-
-    data() {
-        return {
-            isActive: false,
-        }
-    },
-    methods: {
-        showMenu() {
-            this.isActive = !this.isActive
-            console.log(this.isActive)
-        },
-    },
 }
 </script>
 
@@ -43,7 +33,10 @@ export default {
 
 .navbar {
     font-size: 20px;
-    display: flex;
+}
+
+.nav-mobile {
+    display: none;
 }
 
 .menu {
@@ -51,7 +44,7 @@ export default {
 }
 
 .menu {
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     gap: 36px;
 }
@@ -112,24 +105,24 @@ export default {
     opacity: 0.5;
 }
 
-.btn-mobile {
-    display: none;
-}
-
-.open-menu {
-    display: block;
-}
-.closed-menu {
-    display: none;
-}
-
-@media screen and (max-width: 768px) {
-    .btn-mobile {
+@media (max-width: 960px) {
+    .nav-mobile {
         display: block;
     }
 
-    // .navbar {
-    //     display: none;
-    // }
+    .header-container {
+        justify-content: space-between;
+    }
+    .menu {
+        display: none;
+    }
+
+    .menu-btn {
+        width: 100%;
+    }
+
+    .hb {
+        display: block;
+    }
 }
 </style>
