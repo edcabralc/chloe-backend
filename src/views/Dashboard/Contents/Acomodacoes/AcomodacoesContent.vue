@@ -17,7 +17,9 @@
                     <td>{{ acomodacao.descricao }}</td>
                     <td>R$ {{ acomodacao.preco }}</td>
                     <td>
-                        <span class="badge rounded-pill text-bg-primary p-2">{{ acomodacao.status }} </span>
+                        <span :class="acomodacao.status === 'Disponível' ? 'text-bg-primary' : 'text-bg-secondary'" class="badge rounded-pill p-2"
+                            >{{ acomodacao.status }}
+                        </span>
                     </td>
                     <td>
                         <button type="button" class="btn btn-outline-success btn-sm">Editar</button>

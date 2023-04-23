@@ -16,13 +16,16 @@
                     <td>{{ usuario.nome_usuario }}</td>
                     <td>{{ usuario.email_usuario }}</td>
                     <td>
-                        <span class="badge rounded-pill text-bg-primary p-2">{{ usuario.status }} </span>
+                        <span :class="usuario.status === 'ativo' ? 'text-bg-primary' : 'text-bg-secondary'" class="badge rounded-pill p-2"
+                            >{{ usuario.status }}
+                        </span>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-outline-success btn-sm">Editar</button>
+                        <!-- <a type="button" class="btn btn-outline-success btn-sm">Editar</a> -->
+                        <router-link :to="{ name: 'usuario', params: { id: usuario.id } }" class="btn btn-outline-success btn-sm">Editar</router-link>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-outline-danger btn-sm">Remover</button>
+                        <a type="button" class="btn btn-outline-danger btn-sm">Remover</a>
                     </td>
                 </tr>
             </tbody>

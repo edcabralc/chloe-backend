@@ -1,39 +1,9 @@
 <template>
-    <nav class="navbar mobile-nav">
-        <!-- <label class="menu-mobile-icon" for="menu-toggle">&#9776;</label> -->
-        <!-- <input type="checkbox" id="menu-toggle" /> -->
+    <nav class="mobile-nav">
+        <label class="menu-mobile-icon" for="menu-toggle"> &#9776; </label>
 
-        <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary"> -->
-        <div class="container-fluid">
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarTogglerDemo01"
-                aria-controls="navbarTogglerDemo01"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <NavLink />
-                    <li class="mb-1">
-                        <router-link to="/cadastrar" class="btn-default btn_signin"> Cadastrar </router-link>
-                    </li>
-                    <li class="mb-1">
-                        <router-link to="/acessar" class="btn-default btn_login"> Acessar </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/acessar-admin" class="btn-default btn_login"> Acesso Admin </router-link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- <ul class="menu-mobile">
+        <input type="checkbox" id="menu-toggle" />
+        <ul class="menu-mobile">
             <NavLink />
             <li>
                 <router-link to="/cadastrar" class="menu-btn menu-btn_signin"> Cadastrar </router-link>
@@ -41,8 +11,8 @@
             <li>
                 <router-link to="/acessar" class="menu-btn menu-btn_login"> Acessar </router-link>
             </li>
-        </ul> -->
-    <!-- </nav> -->
+        </ul>
+    </nav>
 </template>
 
 <script>
@@ -54,24 +24,24 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use '@/assets/scss/index' as *;
 
 .mobile-nav {
     display: flex;
-    text-align: center;
 }
 
 .menu-mobile {
     display: none;
     position: absolute;
-    top: 120px;
+    top: 167px;
     right: 0px;
     width: 100%;
-    height: 100vh;
-    padding: 24px;
+    height: 267vh;
+    padding: 24px 30px;
     background-color: #fff;
     transition: 0.3s ease;
+    z-index: 100;
     overflow: hidden;
 }
 
@@ -89,16 +59,17 @@ export default {
 }
 
 #menu-toggle {
-    // display: none;
+    display: none;
 }
 
 #menu-toggle:checked + .menu-mobile {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding: 0 30px !important;
 }
 
-.btn-menu {
+.menu-btn {
     width: 140px;
     height: auto;
     border-radius: 9px;
@@ -124,6 +95,12 @@ export default {
             color: #fff;
             cursor: pointer;
         }
+    }
+}
+
+@media (max-width: 1058px) {
+    .menu-btn {
+        width: 100%;
     }
 }
 </style>

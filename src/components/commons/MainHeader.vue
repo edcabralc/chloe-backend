@@ -8,19 +8,14 @@
             </div>
             <MainNavbar />
         </div>
-
-        <div class="navHamb">
-            <NavMobile />
-        </div>
     </header>
 </template>
 
 <script>
-import NavMobile from '@/components/commons/NavMobile.vue'
 import MainNavbar from '@/components/commons/MainNavbar.vue'
 export default {
     name: 'MainHeader',
-    components: { MainNavbar, NavMobile },
+    components: { MainNavbar },
 }
 </script>
 
@@ -36,30 +31,13 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1500px;
+        max-width: 1300px;
         width: 100%;
         flex-wrap: wrap;
     }
 }
 
-/* Navbar */
 .logo {
     width: 217px;
-}
-
-.navHamb {
-    display: none;
-}
-
-@media (max-width: 992px) {
-    .navHamb {
-        display: flex;
-    }
-    .menu {
-        display: none;
-    }
-    .navbar {
-        display: none;
-    }
 }
 </style>

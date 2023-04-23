@@ -8,19 +8,23 @@
             <li>
                 <router-link to="/acessar" class="btn-menu btn-menu_login">Acessar</router-link>
             </li>
-            <li>
+            <!-- <li>
                 <router-link to="/acessar-admin" class="btn-menu btn-menu_login btn-admin">Acesso Admin</router-link>
-            </li>
+            </li> -->
         </ul>
     </nav>
+    <div class="nav-mobile">
+        <nav-mobile></nav-mobile>
+    </div>
 </template>
 
 <script>
 import NavLink from './NavLink.vue'
+import NavMobile from '@/components/commons/NavMobile.vue'
 
 export default {
     name: 'MainNavbar',
-    components: { NavLink },
+    components: { NavLink, NavMobile },
 }
 </script>
 
@@ -31,9 +35,16 @@ export default {
     font-size: 20px;
 }
 
+.nav-mobile {
+    display: none;
+}
+
 .menu {
     display: flex;
-    justify-content: space-between;
+}
+
+.menu {
+    // justify-content: space-between;
     align-items: center;
     gap: 36px;
 }
@@ -91,6 +102,27 @@ export default {
 }
 
 .btn-menu_login:hover {
-    opacity: .5;
+    opacity: 0.5;
+}
+
+@media (max-width: 960px) {
+    .nav-mobile {
+        display: block;
+    }
+
+    .header-container {
+        justify-content: space-between;
+    }
+    .menu {
+        display: none;
+    }
+
+    .menu-btn {
+        width: 100%;
+    }
+
+    .hb {
+        display: block;
+    }
 }
 </style>
