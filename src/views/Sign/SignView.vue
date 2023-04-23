@@ -7,9 +7,9 @@
                 <div class="sign-in-cover"></div>
                 <div class="sign-in-forms">
                     <div class="sign-in-header">
-                        <router-link to="/">
+                        <!-- <router-link to="/">
                             <img src="@/assets/images/logo.svg" alt="Chloe Gran Hotel" />
-                        </router-link>
+                        </router-link> -->
                     </div>
                     <form method="get" id="myForm">
                         <label for="nome">Email:</label>
@@ -41,7 +41,7 @@ export default {
         MainHeader,
         MainFooter,
         HeroBanner,
-        LinkButton
+        LinkButton,
     },
     methods: {
         validarFormulario() {},

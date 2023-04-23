@@ -35,6 +35,7 @@ import HeroBanner from '@/components/commons/HeroBanner.vue'
 
 export default {
     name: 'RegisterView',
+    components: { HeroBanner },
 
     data() {
         return {
@@ -44,30 +45,26 @@ export default {
                 password: '',
             },
         }
-
+    },
     methods: {
-
-
         injTreatment(str) {
             return str.replace(/[''"]/g, '')
         },
         register() {
             this.$store.dispatch('createUser', this.user)
-
+        },
         removeQuotesSpaces(str) {
             return str.replaceAll("'", '').replaceAll('"', '').trim()
         },
 
         register() {
             this.$store.dispatch('createUser', this.$store.state.user)
-
         },
     },
     updated() {
         this.user.nome_usuario = this.injTreatment(this.user.nome_usuario)
         this.user.email_usuario = this.injTreatment(this.user.email_usuario)
     },
-    components: { HeroBanner },
 }
 </script>
 
