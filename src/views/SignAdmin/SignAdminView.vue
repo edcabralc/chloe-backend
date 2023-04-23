@@ -1,17 +1,14 @@
 <template>
-    <mainHeader></mainHeader>
-    <main>
-        <HeroBanner class="img-bg" title="Acesso administrativo"></HeroBanner>
-        <section class="sign-in">
-            <div class="sign-in-container">
-                <div class="sign-in-cover"></div>
-                <div class="sign-in-forms">
-                    <div class="sign-in-header">
-                        <router-link to="/">
-                            <img src="@/assets/images/logo.svg" alt="Chloe Gran Hotel" />
-                        </router-link>
-                    </div>
-                    <form method="get" id="myForm">
+    <main class="main-sign-in-admin">
+        <section class="sign-in-admin">
+            <div class="sign-in-admin-logo">
+                <router-link to="/">
+                    <img src="@/assets/images/logo.svg" alt="Chloe Gran Hotel" />
+                </router-link>
+            </div>
+            <div class="sign-in-admin-container">
+                <div class="sign-in-admin-forms">
+                    <form method="post" id="myForm">
                         <label for="nome">Email de administrador:</label>
                         <input class="input-text-primary" type="email" name="login" id="login" required />
                         <label for="senha">Senha:</label>
@@ -26,23 +23,12 @@
             </div>
         </section>
     </main>
-    <MainFooter></MainFooter>
 </template>
 
 <script>
-import HeroBanner from '@/components/commons/HeroBanner.vue'
-import MainFooter from '@/components/commons/MainFooter.vue'
-import MainHeader from '@/components/commons/MainHeader.vue'
-import LinkButton from '@/components/commons/LinkButton.vue'
-
 export default {
     name: 'SignAdminView',
-    components: {
-        MainHeader,
-        MainFooter,
-        HeroBanner,
-        LinkButton
-    },
+    components: {},
     methods: {
         validarFormulario() {},
     },

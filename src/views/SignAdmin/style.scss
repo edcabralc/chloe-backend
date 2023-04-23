@@ -1,28 +1,33 @@
 @use '@/assets/scss/index' as *;
 
-/* tela de login */
-.img-bg {
-    background: url("@/assets/images/bell.png");
-}
-
-.btn-default {
-    margin: 0 auto;
-}
-
-.sign-in {
-    // width: 100vw;
+.main-sign-in-admin {
+    background: url('@/assets/images/signin-admin.jpg');
+    background-color: #558e60;
+    background-blend-mode: multiply;
+    color: #fff;
+    display: flex;
+    width: 100vw;
     height: 100vh;
-    height: auto;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* tela de login */
+
+.btn-default:hover {
+    transform: scale(1.1);
+}
+
+.sign-in-admin {
     display: flex;
     align-items: center;
     &-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 60%;
-        margin: 0 auto;
     }
-    
+
     &-forms {
         display: flex;
         flex-direction: column;
@@ -34,11 +39,17 @@
         margin: 0 32px;
         padding-top: 42px;
     }
-    &-header {
-        display: flex;
+    &-logo {
+        display: block;
         justify-content: space-between;
+
         align-items: center;
-        padding: 16px 0;
+        padding: 15px 0;
+        position: absolute;
+        width: 217px;
+
+        top: 15px;
+        left: 30px;
     }
     &-forms div > a img {
         justify-self: flex-start;
@@ -48,7 +59,6 @@
         display: flex;
         flex-direction: column;
         gap: 18px;
-        width: 50%;
     }
 
     &-forgot_pass a {
@@ -76,13 +86,13 @@
     color: #558e60;
     padding-top: 6px;
     text-decoration: underline;
+    transition: ease 0.2s;
 }
 
 .sign-in-help a:hover,
 .sign-in-forgot_pass a:hover {
     color: #558e60;
-    opacity: 0.8;
-    transition: ease 0.2s;
+    transform: scale(1.1);
     cursor: pointer;
 }
 
@@ -96,24 +106,13 @@
     margin-bottom: 15px;
 }
 
-.sign-in .mobile-nav {
-    display: flex;
-    z-index: 1;
-}
 /* end de login */
 
 @media (max-width: 750px) {
-    .sign-in-cover {
-        display: none;
-    }
-    .sign-in-forms form {
+    .sign-in-admin-forms form {
         width: 100%;
     }
     .input-text-primary {
         width: 100%;
-    }
-    .mobile-nav {
-        overflow: hidden;
-        z-index: 1;
     }
 }

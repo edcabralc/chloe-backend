@@ -37,10 +37,11 @@ export default {
     top: 167px;
     right: 0px;
     width: 100%;
-    height: 100vh;
+    height: 267vh;
     padding: 24px 30px;
     background-color: #fff;
     transition: 0.3s ease;
+    z-index: 100;
     overflow: hidden;
 }
 
@@ -65,6 +66,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding: 0 30px !important;
 }
 
 .menu-btn {
