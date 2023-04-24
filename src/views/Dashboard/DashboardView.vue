@@ -27,10 +27,10 @@
             <aside class="aside">
                 <nav class="aside-menu">
                     <ul class="menu-dashboard">
-                        <li>
+                        <!-- <li>
                             <font-awesome-icon icon="fa-solid fa-house" />
                             <router-link to="/painel/inicio">Inicio</router-link>
-                        </li>
+                        </li> -->
                         <li>
                             <font-awesome-icon icon="fa-solid fa-user" />
                             <router-link to="/painel/usuarios">Usuários</router-link>
@@ -39,7 +39,7 @@
                             <font-awesome-icon icon="fa-solid fa-hotel" />
                             <router-link to="/painel/acomodacoes">Acomodações</router-link>
                         </li>
-                        <li>
+                        <!-- <li>
                             <font-awesome-icon icon="fa-solid fa-address-book" />
                             <router-link to="/painel/reservas">Reservas</router-link>
                         </li>
@@ -50,7 +50,7 @@
                         <li>
                             <font-awesome-icon icon="fa-solid fa-star" />
                             <router-link to="/painel/avaliacoes">Avaliações</router-link>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
             </aside>

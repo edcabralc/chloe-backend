@@ -1,7 +1,6 @@
 <template>
     <div class="acomodacoes">
-        <!-- {{ usuarios }} -->
-        <div class="lista" v-for="usuario in usuarios.list" :key="usuario.id">
+        <!-- <div class="lista" v-for="usuario in usuarios.list" :key="usuario.id">
             <ul>
                 <li>
                     <h3>{{ usuario.nome_usuario }}</h3>
@@ -10,8 +9,8 @@
                 <li>{{ usuario.nivel }}</li>
                 <li>{{ usuario.status }}</li>
             </ul>
-        </div>
-        <table class="" style="width: 100%">
+        </div> -->
+        <!-- <table class="" style="width: 100%">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -29,7 +28,7 @@
                     <td>{{ usuario.nivel }}</td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
     </div>
 </template>
 
