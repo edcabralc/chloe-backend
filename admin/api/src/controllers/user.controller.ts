@@ -43,21 +43,29 @@ export const getById = async (req: Request, res: Response) => {
 }
 
 export const createUser = async (req: Request, res: Response) => {
-    const { nome_usuario, email_usuario, password } = req.body
     try {
-        if (nome_usuario === '' && email_usuario === '' && password === '') {
-            res.status(400)
-            throw new Error('Não foi possível cadastrar o usuário')
+        const hasData = req.body.nome_usuario && req.body.email_usuario && req.body.password
+
+        if (hasData) {
+            const { nome_usuario, email_usuario, password } = req.body
+            const hasUser = await User.findOne({ where: { email_usuario } })
+
+            if (!hasUser) {
+                const hashedPassword = await bcrypt.hash(password, 10)
+                const newUser = User.build({ nome_usuario, email_usuario, password: hashedPassword })
+
+                await newUser.save()
+
+                return res
+                    .status(201)
+                    .json({ message: 'Usuário cadastrado com sucesso', id: newUser.id, nome: newUser.nome_usuario, email: newUser.email_usuario })
+            } else {
+                res.status(400)
+                throw new Error('E-mail já cadastrado na base de dados')
+            }
         }
-
-        const hashedPassword = await bcrypt.hash(password, 10)
-        const newUser = User.build({ nome_usuario, email_usuario, password: hashedPassword })
-
-        await newUser.save()
-
-        return res
-            .status(201)
-            .json({ message: 'Usuário cadastrado com sucesso', id: newUser.id, nome: newUser.nome_usuario, email: newUser.email_usuario })
+        res.status(400)
+        throw new Error('Todos os campos são obrigatórios')
     } catch ({ message }) {
         return res.status(400).json({ error: message })
     }
