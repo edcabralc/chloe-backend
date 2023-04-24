@@ -8,8 +8,6 @@
                         <div>
                             <h2>{{ titleMinhaReserva }}</h2>
                             <p>{{ paragraphMinhaReserva }}</p>
-                            <!-- {{ acomodacoes }} -->
-                            {{ getAcomodacoes }}
                         </div>
                         <div class="flex">
                             <div class="input-group">

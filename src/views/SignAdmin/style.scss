@@ -1,7 +1,8 @@
 @use '@/assets/scss/index' as *;
 
 .main-sign-in-admin {
-    background: url('@/assets/images/signin-admin.jpg');
+    background: url('@/assets/images/signin-admin.jpg') no-repeat;
+    background-size: cover;
     background-color: #558e60;
     background-blend-mode: multiply;
     color: #fff;
@@ -42,18 +43,13 @@
     &-logo {
         display: block;
         justify-content: space-between;
-
+        fill: #fff;
         align-items: center;
         padding: 15px 0;
         position: absolute;
         width: 217px;
-
         top: 15px;
         left: 30px;
-    }
-    &-forms div > a img {
-        justify-self: flex-start;
-        width: 50%;
     }
     &-forms form {
         display: flex;
